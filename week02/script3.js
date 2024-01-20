@@ -2,7 +2,8 @@
 /*
 We can test and run this file using:
 > node script3
-Because it doesn't have any code relevant to the browser window or document objects
+Because it doesn't
+ have any code relevant to the browser window or document objects
 */
 class Rectangle {
     // Class Properties: variables
@@ -10,10 +11,16 @@ class Rectangle {
     // private => # symbol => cannot be accessed outside this class
 
     // Two private properties:
-    // Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties
+    /*
+     The privacy encapsulation of these class properties is enforced by JavaScript itself.
+     Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties
+    */
     #height;
     #width;
 
+    /*
+    Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static#try_it
+    */
     static #shape = "Rectangle";
     /*
     The constructor method is a special method 

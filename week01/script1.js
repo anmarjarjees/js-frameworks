@@ -1,10 +1,17 @@
 /*
-Variable Scope:
-- var => function scope
+Declarations:
+JavaScript has three kinds of variable declarations.
 
-ES6 (EcmaScript 2015)
-- let => block scope
-- const
+> var:
+Declares a variable, optionally initializing it to a value.
+
+> let (ES6):
+Declares a block-scoped, local variable, optionally initializing it to a value.
+
+> const (ES6):
+Declares a block-scoped, read-only named constant.
+
+Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#declarations
 */
 
 /*

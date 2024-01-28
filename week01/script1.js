@@ -85,8 +85,16 @@ const college = "ILAC";
 // Js classical way
 console.log("My college is " + college);
 
-// ES6: String Template:
+// ES6: Template literals (Template strings)
+/*
+Template literals are literals delimited with backtick (`) characters,
+allowing for multi-line strings, string interpolation 
+with embedded expressions, and special constructs called tagged templates.
+Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+*/
 console.log(`my college is ${college}`);
+
+
 
 // Arrays:
 const newsChannels = ["cp24", "CTV news", "CityTV", "Fox29"];

@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "first_name": "Lowrance",
+        "last_name": "Baldassi",
+        "email": "lbaldassi0@wired.com",
+        "gender": "Male",
+        "job_title": "Senior Cost Accountant"
+    },
+    {
+        "id": 2,
+        "first_name": "Minne",
+        "last_name": "Mattingley",
+        "email": "mmattingley1@hubpages.com",
+        "gender": "Female",
+        "job_title": "Senior Editor"
+    },
+    {
+        "id": 3,
+        "first_name": "Adeline",
+        "last_name": "Vere",
+        "email": "avere2@a8.net",
+        "gender": "Female",
+        "job_title": "Chief Design Engineer"
+    },
+    {
+        "id": 4,
+        "first_name": "Brigid",
+        "last_name": "Wedmore.",
+        "email": "bwedmore3@prweb.com",
+        "gender": "Female",
+        "job_title": "Editor"
+    },
+    {
+        "id": 5,
+        "first_name": "Alvina",
+        "last_name": "Soigne",
+        "email": "asoigne4@howstuffworks.com",
+        "gender": "Female",
+        "job_title": "Research Assistant IV"
+    },
+    {
+        "id": 6,
+        "first_name": "Andris",
+        "last_name": "Francom",
+        "email": "afrancom5@census.gov",
+        "gender": "Male",
+        "job_title": "Quality Engineer"
+    },
+    {
+        "id": 7,
+        "first_name": "Mathe",
+        "last_name": "Enderby",
+        "email": "menderby6@theguardian.com",
+        "gender": "Male",
+        "job_title": "Tax Accountant"
+    },
+    {
+        "id": 8,
+        "first_name": "Amelie",
+        "last_name": "Whimpenny",
+        "email": "awhimpenny7@jiathis.com",
+        "gender": "Bigender",
+        "job_title": "Desktop Support Technician"
+    },
+    {
+        "id": 9,
+        "first_name": "Ali",
+        "last_name": "Oldland",
+        "email": "aoldland8@mozilla.com",
+        "gender": "Non-binary",
+        "job_title": "Nurse Practicioner"
+    },
+    {
+        "id": 10,
+        "first_name": "Isabeau",
+        "last_name": "Powner",
+        "email": "ipowner9@oracle.com",
+        "gender": "Female",
+        "job_title": "Help Desk Technician"
+    },
+    {
+        "id": 11,
+        "first_name": "Lezley",
+        "last_name": "Lovejoy",
+        "email": "llovejoya@soundcloud.com",
+        "gender": "Male",
+        "job_title": "Civil Engineer"
+    },
+    {
+        "id": 12,
+        "first_name": "Erich",
+        "last_name": "Dalbey",
+        "email": "edalbeyb@squidoo.com",
+        "gender": "Male",
+        "job_title": "Structural Analysis Engineer"
+    },
+    {
+        "id": 13,
+        "first_name": "Garvin",
+        "last_name": "Romagnosi",
+        "email": "gromagnosic@senate.gov",
+        "gender": "Male",
+        "job_title": "Administrative Officer"
+    },
+    {
+        "id": 14,
+        "first_name": "Hercule",
+        "last_name": "Willbourne",
+        "email": "hwillbourned@springer.com",
+        "gender": "Male",
+        "job_title": "Geological Engineer"
+    },
+    {
+        "id": 15,
+        "first_name": "Oralee",
+        "last_name": "Robardet",
+        "email": "orobardete@sciencedaily.com",
+        "gender": "Female",
+        "job_title": "Account Executive"
+    },
+    {
+        "id": 16,
+        "first_name": "Alica",
+        "last_name": "Whapham",
+        "email": "awhaphamf@blinklist.com",
+        "gender": "Female",
+        "job_title": "Budget/Accounting Analyst IV"
+    },
+    {
+        "id": 17,
+        "first_name": "Felix",
+        "last_name": "Swindlehurst",
+        "email": "fswindlehurstg@spotify.com",
+        "gender": "Agender",
+        "job_title": "Nurse Practicioner"
+    },
+    {
+        "id": 18,
+        "first_name": "Chrissy",
+        "last_name": "Natalie",
+        "email": "cnatalieh@tripod.com",
+        "gender": "Female",
+        "job_title": "Recruiter"
+    },
+    {
+        "id": 19,
+        "first_name": "Megan",
+        "last_name": "Garrat",
+        "email": "mgarrati@nih.gov",
+        "gender": "Female",
+        "job_title": "Business Systems Development Analyst"
+    },
+    {
+        "id": 20,
+        "first_name": "Timothea",
+        "last_name": "Gemlett",
+        "email": "tgemlettj@washington.edu",
+        "gender": "Female",
+        "job_title": "Recruiter"
+    },
+    {
+        "id": 21,
+        "first_name": "Mack",
+        "last_name": "Glenny",
+        "email": "mglennyk@china.com.cn",
+        "gender": "Non-binary",
+        "job_title": "Senior Editor"
+    },
+    {
+        "id": 22,
+        "first_name": "Correy",
+        "last_name": "Chastand",
+        "email": "cchastandl@nhs.uk",
+        "gender": "Agender",
+        "job_title": "Research Nurse"
+    },
+    {
+        "id": 23,
+        "first_name": "Bevan",
+        "last_name": "Dehn",
+        "email": "bdehnm@themeforest.net",
+        "gender": "Male",
+        "job_title": "Marketing Manager"
+    },
+    {
+        "id": 24,
+        "first_name": "Katusha",
+        "last_name": "Batecok",
+        "email": "kbatecokn@nyu.edu",
+        "gender": "Female",
+        "job_title": "Quality Engineer"
+    },
+    {
+        "id": 25,
+        "first_name": "Kareem",
+        "last_name": "Jennaway",
+        "email": "kjennawayo@wunderground.com",
+        "gender": "Male",
+        "job_title": "VP Quality Control"
+    }
+]

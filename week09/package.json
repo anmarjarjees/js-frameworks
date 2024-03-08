@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "week09",
+  "version": "1.0.0",
+  "description": "about learning express",
+  "main": "index3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --experimental-json-modules"
+  },
+  "keywords": [
+    "node",
+    "expressjs",
+    "javascript"
+  ],
+  "author": "Anmar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "first_name": "Tawsha",
+        "last_name": "Phelipeau",
+        "email": "tphelipeau0@unicef.org",
+        "gender": "Female",
+        "job_title": "Systems Administrator III"
+    },
+    {
+        "id": 2,
+        "first_name": "Marylinda",
+        "last_name": "Loudwell",
+        "email": "mloudwell1@google.it",
+        "gender": "Female",
+        "job_title": "Safety Technician I"
+    },
+    {
+        "id": 3,
+        "first_name": "Cedric",
+        "last_name": "Storton",
+        "email": "cstorton2@edublogs.org",
+        "gender": "Male",
+        "job_title": "Legal Assistant"
+    },
+    {
+        "id": 4,
+        "first_name": "Mitchel",
+        "last_name": "Plenderleith",
+        "email": "mplenderleith3@flickr.com",
+        "gender": "Male",
+        "job_title": "Nurse"
+    },
+    {
+        "id": 5,
+        "first_name": "Honoria",
+        "last_name": "Wandrack",
+        "email": "hwandrack4@chicagotribune.com",
+        "gender": "Female",
+        "job_title": "Desktop Support Technician"
+    },
+    {
+        "id": 6,
+        "first_name": "Felix",
+        "last_name": "Gregr",
+        "email": "fgregr5@phoca.cz",
+        "gender": "Agender",
+        "job_title": "Structural Analysis Engineer"
+    },
+    {
+        "id": 7,
+        "first_name": "Ashla",
+        "last_name": "Dulinty",
+        "email": "adulinty6@shutterfly.com",
+        "gender": "Female",
+        "job_title": "Information Systems Manager"
+    },
+    {
+        "id": 8,
+        "first_name": "Emlyn",
+        "last_name": "Kimbrough",
+        "email": "ekimbrough7@constantcontact.com",
+        "gender": "Male",
+        "job_title": "Pharmacist"
+    },
+    {
+        "id": 9,
+        "first_name": "Verene",
+        "last_name": "Wyllis",
+        "email": "vwyllis8@huffingtonpost.com",
+        "gender": "Female",
+        "job_title": "Marketing Assistant"
+    },
+    {
+        "id": 10,
+        "first_name": "Riva",
+        "last_name": "Leborgne",
+        "email": "rleborgne9@patch.com",
+        "gender": "Female",
+        "job_title": "Web Developer IV"
+    },
+    {
+        "id": 11,
+        "first_name": "Maddi",
+        "last_name": "Cardinale",
+        "email": "mcardinalea@huffingtonpost.com",
+        "gender": "Female",
+        "job_title": "Actuary"
+    },
+    {
+        "id": 12,
+        "first_name": "Nedi",
+        "last_name": "Kaplan",
+        "email": "nkaplanb@google.com.br",
+        "gender": "Female",
+        "job_title": "Recruiting Manager"
+    },
+    {
+        "id": 13,
+        "first_name": "Kristyn",
+        "last_name": "Brawson",
+        "email": "kbrawsonc@nasa.gov",
+        "gender": "Female",
+        "job_title": "Design Engineer"
+    },
+    {
+        "id": 14,
+        "first_name": "Bord",
+        "last_name": "Dillet",
+        "email": "bdilletd@mapy.cz",
+        "gender": "Male",
+        "job_title": "Statistician III"
+    },
+    {
+        "id": 15,
+        "first_name": "Jervis",
+        "last_name": "Meneghi",
+        "email": "jmeneghie@senate.gov",
+        "gender": "Male",
+        "job_title": "Computer Systems Analyst I"
+    },
+    {
+        "id": 16,
+        "first_name": "Erminie",
+        "last_name": "Fallowes",
+        "email": "efallowesf@devhub.com",
+        "gender": "Female",
+        "job_title": "Help Desk Operator"
+    },
+    {
+        "id": 17,
+        "first_name": "Erinna",
+        "last_name": "Scarbarrow",
+        "email": "escarbarrowg@rakuten.co.jp",
+        "gender": "Female",
+        "job_title": "Junior Executive"
+    },
+    {
+        "id": 18,
+        "first_name": "Berky",
+        "last_name": "Kaygill",
+        "email": "bkaygillh@posterous.com",
+        "gender": "Male",
+        "job_title": "VP Product Management"
+    },
+    {
+        "id": 19,
+        "first_name": "Clayton",
+        "last_name": "Brehaut",
+        "email": "cbrehauti@nasa.gov",
+        "gender": "Male",
+        "job_title": "Mechanical Systems Engineer"
+    },
+    {
+        "id": 20,
+        "first_name": "Barrie",
+        "last_name": "Dincke",
+        "email": "bdinckej@mapy.cz",
+        "gender": "Female",
+        "job_title": "Financial Advisor"
+    },
+    {
+        "id": 21,
+        "first_name": "Parker",
+        "last_name": "Della Scala",
+        "email": "pdellascalak@usnews.com",
+        "gender": "Genderfluid",
+        "job_title": "Web Designer IV"
+    },
+    {
+        "id": 22,
+        "first_name": "Isis",
+        "last_name": "Genike",
+        "email": "igenikel@altervista.org",
+        "gender": "Female",
+        "job_title": "VP Product Management"
+    },
+    {
+        "id": 23,
+        "first_name": "Suzy",
+        "last_name": "Kanwell",
+        "email": "skanwellm@tinypic.com",
+        "gender": "Female",
+        "job_title": "VP Sales"
+    },
+    {
+        "id": 24,
+        "first_name": "Lion",
+        "last_name": "Bulmer",
+        "email": "lbulmern@comsenz.com",
+        "gender": "Polygender",
+        "job_title": "VP Marketing"
+    },
+    {
+        "id": 25,
+        "first_name": "Kinny",
+        "last_name": "Ayshford",
+        "email": "kayshfordo@ameblo.jp",
+        "gender": "Male",
+        "job_title": "Desktop Support Technician"
+    }
+]

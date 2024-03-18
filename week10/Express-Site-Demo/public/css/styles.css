@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+}
+header, section, footer, nav, article, figure, figcaption {
+  display: block;
+}
+body {
+  color: #666666;
+  background-color: #ffffff;
+  background-image: url("../assets/images/dark-wood.jpg");
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+}
+div.container {
+  width: 950px;
+  margin: 5px auto;
+  background-color: #fff5e6;
+}
+.content {
+  /* box-sizing: border-box; */
+  line-height: 1.4em;
+  padding: 10px;
+}
+header, nav, footer {
+  background-color: #cc7a00;
+  color: #ffffff;
+  /* height: 160px; */
+  /* background-image: url("images/header.jpg"); */
+}
+/* h1 {
+			text-indent: -9999px;
+			width: 940px;
+			height: 130px;
+			margin: 0px;
+		} */
+nav ul {
+  margin: 0;
+  padding: 5px;
+}
+nav li {
+  display: inline;
+  margin-right: 40px;
+  text-transform: uppercase;
+}
+nav li a {
+  color: #ffffff;
+}
+nav li a:hover, nav li a.current {
+  color: #000000;
+}
+a {
+  color: #de6581;
+  text-decoration: none;
+}
+h1, h2, h3 {
+  margin: 10px;
+  text-transform: uppercase;
+  color: darkred;
+}
+.img-centre {
+  display: block;
+  margin: 5px auto;
+  border: 2px solid black;
+  padding: 2px;
+}
+audio, video {
+  display: block;
+  margin: 10px auto;
+}
+table {
+  width: 800px;
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 1px groove black;
+  padding: 2px 5px;
+  background-color: #f4dab7;
+}
+table th, tfoot td {
+  text-transform: uppercase;
+  background-color: #b58c56;
+  color: #f4dab7;
+}
+dt {
+  font-weight: bold;
+}
+footer {
+  font-size: 80%;
+  text-align: center;
+  padding: 1px 0;
+}
+iframe {
+  display: block;
+  margin: 10px auto;
+}
+fieldset {
+  width: 500px;
+  margin: 20px auto;
+  border: 1px solid #b58c56;
+  background-color: #f4dab7;
+}
+legend {
+  font-style: italic;
+  color: #f4dab7;
+  ;
+  margin: 0 10px;
+  padding: 0 5px;
+  background-color: #b58c56;
+  border-radius: 10px;
+}
+input[type="submit"] {
+  border: 1px solid #f4dab7;
+  padding: 5px;
+  background-color: #b58c56;
+  ;
+  color: #ffffff;
+}
+input[type="submit"]:hover {
+  background-color: #724311;
+  ;
+  color: #ffffff;
+  cursor: pointer;
+}

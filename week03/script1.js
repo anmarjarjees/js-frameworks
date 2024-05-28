@@ -1,13 +1,17 @@
-// Working with promises - Part1 - The Basics:
+/* 
+Working with promises - Part1 - The Basics:
+*******************************************
+*/
+
 /*
-JavaScript was originally designed to work as a "single-threaded",
+JavaScript (JS) was originally designed to work as a "single-threaded",
 "synchronous" language. 
 
-JS can run one thing at a time,
+In plain English, JS can run one thing/task at a time.
 meaning it executes code in order so one task or step runs after another step, 
 and each task or piece of code must be finished executing before moving onto the next.
 
-Callbacks:
+The term "Callback":
 To review: In callback, one function is passed to another function as an argument.
 
 Promises in JS help us to work/deal with an asynchronous operation. 
@@ -78,10 +82,20 @@ Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promis
 Link: https://www.w3schools.com/js/js_promise.asp
 */
 
-// Promises: Promise Class:
-// Resolved / Rejected 
+/* 
+Promises: Promise Class
+***********************
+> The Promise constructor takes a function as argument,
+> This function passed to new Promise is called the "executor"
+> This function lets us resolve or reject a promise manually
+> This function accepts two parameters: resolve and reject (by convention)
+> These two parameters are used to indicate the completion or failure of the asynchronous operation
+
+Resolved / Rejected:
+
+*/
+
 // The constructor syntax for a promise object "promiseObj1":
-// The function passed to new Promise is called the executor. 
 let promiseObj1 = new Promise(function (resolve, reject) {
     // executor (the producing code, "singer")
 });
@@ -92,18 +106,18 @@ let promiseObj2 = new Promise((resolve, reject) => {
 console.log(promiseObj2); // Promise { <pending> }
 
 /*
-NOTE:
-The arguments "resolve" and "reject" are "callbacks" 
+NOTES:
+******
+1. The arguments "resolve" and "reject" are "callbacks" 
 provided by JavaScript itself. Our code is only inside the executor.
         
-NOTE:
-Don't forget that "resolve" and "reject" in our example below are just a function arguments, 
+2. Don't forget that "resolve" and "reject" in our example below are just a function arguments, 
 so don't be confused thinking that we have to use the same keyword "resolve" and "reject"!
 It's just by convention, so we can use:
 - new Promise((x, y) => { ... }
 - new Promise((a, b) => { ... }
 
-But JS will use:
+3. JS will use:
 > The first parameter (whatever name you give it) for the resolve 
 > The second parameter (whatever name you give it) for the reject
 
@@ -122,15 +136,16 @@ a promise from a student to get a high average value
 // Similar to Java "Anonymous" class
 // ClassName objName = new ClassName() { ... }
 const promise = new Promise((resolve, reject) => {
+    // A simulation of a "asynchronous" operation (successful or failed)
     // Change the value to see both resolve and reject 
     let exam1 = 91;
     let exam2 = 90;
     let avg = (exam1 + exam2) / 2;
     if (avg >= 90) {
-        // Resolve the promise => using our resolve() function
+        // Resolve the promise (Successful Completed) => using our resolve() function
         resolve("Passing with A+"); // using double quotes 
     } else {
-        // Reject the promise => using our reject() function
+        // Reject the promise (Failed to be Completed) => using our reject() function
         reject('Failed to get A+'); // or single quote
     }
 });
@@ -223,8 +238,13 @@ const myPromise = new Promise((myResolve, myReject) => {
     }
 });
 
-// Chaining the methods:
-// We can use .then().catch() chaining methods:
+/* 
+Chaining the methods:
+*********************
+We can use .then().catch() chaining methods:
+> .then() method is used when the promise is fulfilled
+> .catch() method is used when the promise is rejected
+*/
 myPromise.then(
     // only one function for the resolved promise
     passMsg => {
@@ -242,8 +262,14 @@ myPromise.then(
     }
 )
 
-// functions can return a promise!
-function anyName() {
+
+/* 
+Functions can return a promise!
+*******************************
+*/
+
+// Example1: Basic:
+function fetchData() {
     return new Promise((res, rej) => {
         /*
              Here we can write our code that needs time to be accomplished
@@ -252,8 +278,39 @@ function anyName() {
              - Get Data from Database 
              - Reading and loading a file I/O
            */
-        res();
-        rej();
+        res("The data");
+        rej("No Data");
     })
 }
+
+// calling our function fetchData():
+fetchData()
+    .then((data) => { console.log(data); })
+    .catch((error) => { console.error(error) });
+
+// Example2: Using Try-Catch:
+/* 
+try-catch blocks can also being used to handle errors within the asynchronous operations:
+*/
+function getData() {
+    return new Promise((res, rej) => {
+        try {
+            /*
+            Here we can write our code that needs time to be accomplished
+            for example:
+            - Fetch an API
+            - Get Data from Database 
+            - Reading and loading a file I/O
+            */
+            res("The data");
+        } catch (error) {
+            rej("No Data");
+        }
+    })
+}
+
+// calling our function getData():
+getData()
+    .then((data) => { console.log(data); })
+    .catch((error) => { console.error(error) });
 

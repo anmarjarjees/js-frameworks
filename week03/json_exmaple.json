@@ -1,0 +1,48 @@
+[
+    {
+        "brand": "Toyota",
+        "model": "SUV",
+        "year": 2020,
+        "wheel_type": 4,
+        "owner": "Alex Chow",
+        "address": {
+            "street": "Yonge St.",
+            "province": "On",
+            "city": "Toronto"
+        },
+        "hobbies": [
+            "sport",
+            "music",
+            "coding"
+        ],
+        "activities": [
+            {
+                "name": "swimming",
+                "location": "Lake Ontario",
+                "time": "6:00 AM"
+            },
+            {
+                "name": "cycling",
+                "location": "Lake Ontario",
+                "time": "6:00 AM"
+            },
+            {
+                "name": "walking",
+                "location": "on the cloud!",
+                "time": "6:00 AM"
+            }
+        ]
+    },
+    {
+        "brand": "Toyota",
+        "model": "SUV",
+        "year": 2020,
+        "wheel_type": 4
+    },
+    {
+        "brand": "Toyota",
+        "model": "SUV",
+        "year": 2020,
+        "wheel_type": 4
+    }
+]

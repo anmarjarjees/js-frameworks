@@ -1,4 +1,8 @@
-// Working with promises - Part2 - Working with "fetch()":
+/* 
+Working with promises - Part2 - "fetch()":
+******************************************
+*/
+
 /*
 Simplify the code of AJAX API request from the previous example
 by using the ES6 "Fetch API" with "fetch()" method
@@ -32,7 +36,7 @@ const jsonExample = {
     "status": "Cloudy"
 }
 
-// Basic example of JSON Array:
+// Basic example of a JSON Array:
 const JsonArray = [
     {
         "id": 123,
@@ -52,12 +56,30 @@ const JsonArray = [
 ];
 
 
-// Online JSON Validator: https://jsonlint.com/
+/*  
+Online JSON Validator: https://jsonlint.com/
+But VS Code can also highlight our errors in a JSON file :-)
+*/
 
 const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";
 // for testing:
 let res = fetch(url);
-console.log(res); // Promise { <pending> } <=> the output with node
+console.log(res);
+/* 
+Output:
+*******
+
+Promise {<pending>}
+    [[Prototype]]: Promise
+        catch: ƒ catch()
+        constructor: ƒ Promise()
+        finally: ƒ finally()
+        then: ƒ then()
+        Symbol(Symbol.toStringTag): "Promise"
+        [[Prototype]]: Object
+        [[PromiseState]]: "fulfilled"
+    [[PromiseResult]]: Response
+*/
 
 fetch("http//api.non-exists-website-demo.org/no-jason-file.json")
     .then(response => {
@@ -78,24 +100,71 @@ fetch("http//api.non-exists-website-demo.org/no-jason-file.json")
 fetch(url).then((response) => console.log(response));
 
 /*
- The response object that's returned by fetch()
- has a method name json()
- this "json()" method parses the body as JSON
+Using .json() method:
+*********************
+The response object that's returned by fetch()
+> has a method name json()
+> "json()" method parses the body as JSON
 
  As you see the result above there is a "body" property
  that contains the data
  */
 
-// repeat the same syntax but with .json() method:
-// Chaining method:
+fetch(url)
+    .then((response) => {
+        const data = response.json();
+        console.log(data);
+    })
+
+// repeat the same syntax with .json() method using "Chaining Method":
 // .then() = pass the value to the second .then()
 // response.json() will be passed to the second .then()
 fetch(url)
     // Don't forget that () are optional
     .then((response) => response.json())
     .then((data) => console.log(data));
+/* 
+Output: data is just an array of JSON objects
+(3) [{…}, {…}, {…}]
 
-// print the name of the first instrument "Piano"
+(3) [{…}, {…}, {…}]
+0: {name: 'Piano', history: 'very old', specs: {…}}
+1: {name: 'Guitar', history: 'old', specs: {…}}
+2: {name: 'Ukulele', history: 'new', specs: {…}}
+length: 3
+[[Prototype]]: Array(0)
+*/
+
+/* 
+IMPORTANT NOTES:
+****************
+NOTE#1:
+ > This "arrow function" is without block body { ... }:
+(response) => response.json()
+ > implicitly returns the result of response.json()
+
+NOTE#2:
+ > This "arrow function" uses a block body { ... }:
+ (response) => { response.json() } 
+ > In a block body, if we do not explicitly use the return statement, 
+ the function returns "undefined" by default.
+*/
+
+// Consider the two examples below about note1 and note2:
+
+// Example1: code below shows "undefined": no return with function body:
+fetch(url)
+    // Implicit Return:
+    .then((response) => { response.json() })
+    .then((data) => console.log(data));
+
+// Example2: code below shows the JSON array: using return with function body:
+fetch(url)
+    // Explicit Return
+    .then((response) => { return response.json() })
+    .then((data) => console.log(data));
+
+// Task: Print the name of the first instrument "Piano"
 /*
     index 0 => property "name" => the value "Piano"
 */
@@ -112,9 +181,11 @@ fetch(url)
     .then((response) => response.json())
     .then((data) => {
         data.forEach(element => {
-            console.log(element.name);
+            console.log(element.name); // Piano Guitar Ukulele
         });
-    }); // Piano
+    });
+
+
 
 /*
      Let's try GitHub API to grab some info from commits: (commit -m "message")
@@ -130,7 +201,36 @@ fetch(url)
      API URL: https://api.github.com/repos/microsoft/vscode/commits
 
      IMPORTANT NOTE: 
-     Don't forget the error of the API request limit to GitHub API within a short period of time
+     Don't forget the error of the API request about "CORS" policy:
+     from origin 'null' has been blocked by CORS policy: 
+     Cross origin requests are only supported for protocol schemes: 
+     http, data, isolated-app, chrome-extension, chrome, https, chrome-untrusted.
+
+     CORS: is a security feature implemented by browsers to prevent web pages 
+     from making requests to a different domain than the one that served the web page. 
+     This is to prevent malicious websites from accessing sensitive information from another site.
+
+     Error Message: 
+     Indicates that the request is being blocked 
+     because it is not made over a supported protocol (http, https, etc.), and the origin is 'null'
+     
+     Solutions:
+     **********
+     1. Instead of running the file directly, you should serve it via a local server. 
+     like using XAMPP with "localhost"
+     
+     2. Using ExpressJS with "cors" middleware to enable "CORS" (for later...)
+     
+     Code Example:
+     app.use(cors());
+     
+     3. Using a proxy server to bypass CORS restrictions (Just for development NOT for production). 
+     "cors-anywhere" => free service
+     
+     Code Example:
+     fetch('https://cors-anywhere.YourURL')
+    .then((response) => response.json())
+    .then((data) => console.log(data));
  */
 
 const gitApiUrl = "https://api.github.com/repos/microsoft/vscode/commits";
@@ -145,4 +245,4 @@ fetch(gitApiUrl)
 fetch(gitApiUrl)
     .then(response => response.json())
     .then(response => console.log(response[0].author.login
-    )); // any recent name (id) who made the changes
+    )); // any name (id) who made the recent changes

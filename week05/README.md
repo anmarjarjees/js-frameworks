@@ -4,9 +4,7 @@ Notice that the code files (examples) of this week (5) are taken from my GitHub 
 It's strongly recommended to read/review the [README.MD](https://github.com/anmarjarjees/node.js-start) file of "Starting withNode" repo.
 
 # Code File Sequence:
-- [index6.js](https://github.com/anmarjarjees/node.js-start/blob/main/index6.js) => Promises based solution to read file:
-- [index7.js](https://github.com/anmarjarjees/node.js-start/blob/main/index7.js) => Modules and NPM Summary
-    - using [my-module1.js](https://github.com/anmarjarjees/node.js-start/blob/main/my-module1.js)
-- [index8.js](https://github.com/anmarjarjees/node.js-start/blob/main/index8.js) => File System "fs" module
-    - using [my-module2.js](https://github.com/anmarjarjees/node.js-start/blob/main/my-module2.js)
-- [index.js](https://github.com/anmarjarjees/node.js-start/blob/main/index.js) => The final main example
+- [https://github.com/anmarjarjees/node.js-start/tree/main/3.files]() => File System "fs" module (Async/Await Functions) - Part2
+- [https://github.com/anmarjarjees/node.js-start/tree/main/4.node_pages]() => Node HTML Pages
+- [https://github.com/anmarjarjees/node.js-start/tree/main/5.modules]() => Modules and NPM Summary
+- [https://github.com/anmarjarjees/node.js-start/tree/main/6.packages]() => Node Packages

@@ -6,4 +6,4 @@ It's strongly recommended to read/review the [README.MD](https://github.com/anma
 # Code File Sequence:
 - [https://github.com/anmarjarjees/node.js-start/tree/main/1.basic]() => Basic: Global Objects - Globat "process" module
 - [https://github.com/anmarjarjees/node.js-start/tree/main/2.events]() => Events and Callback Functions Concepts 
-- [https://github.com/anmarjarjees/node.js-start/tree/main/3.files]() => File System "fs" module
+- [https://github.com/anmarjarjees/node.js-start/tree/main/3.files]() => File System "fs" module - Part1

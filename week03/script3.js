@@ -143,10 +143,10 @@ async function test() {
 test();
 
 /* 
-A Better Example of Using "await" 
+A Better Example of Using "async" and "await"  
 to Handle Asynchronous Operations Returning Promises
 */
-const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";;
+const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";
 
 // Example of fetch(), simplified with async/await
 /*
@@ -188,6 +188,7 @@ This makes handling asynchronous operations cleaner and more readable.
 */
 
 // Finally: Getting the returned value of "data" from the function getData() 
+// *************************************************************************
 /*
 NOTE:
 Because "getData()" is an async function, 
@@ -207,3 +208,37 @@ getData(url)
 // Just to recap :-) 
 // The callback function can also be written without { } as it has only one line:
 getData(url).then(console.log).catch(err => console.log(err.message));
+
+/*
+Real world scenario:
+********************
+The console window is for us as programmers to test our code and log the data,
+but our clients expect to see the content in the document!
+
+Consider the following two solutions:
+*/
+
+// First Try: 
+/*
+Bad way of coding! for two reasons:
+1) We are using 3 lines of code for printing three elements, What if we have 25 element?
+=> We should use a loop structure instead
+2) the method document.write() will simply override the current content of the page every time we use it! so we will only see the last element "Ukulele"!
+=> we should use DOM "getElementById()"
+*/
+
+// getData(url).then((data) => document.write("<br>" + data[0].name)); // Piano
+// getData(url).then((data) => document.write("<br>" + data[1].name)); // Guitar
+// getData(url).then((data) => document.write("<br>" + data[2].name)); // Ukulele
+
+// One of the good solution to apply the two key points: loop and dom:
+getData(url).then(data => {
+    let ulElement = "<ul>";
+    data.forEach(element => {
+        // document.write("<br>" + element.name);
+        // document.getElementById("instruments").innerText = element.name;
+        ulElement += "<li>" + element.name + "</li>";
+    });
+    ulElement += "</ul>";
+    document.getElementById("instruments").innerHTML = ulElement;
+}); 

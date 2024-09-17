@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Piano",
+        "history": "very old",
+        "specs": {
+            "type": [
+                "Baby Grand",
+                "Parlor Grand",
+                "Concert Grand"
+            ],
+            "category": [
+                "61 keys",
+                "76 keys",
+                "88 keys"
+            ]
+        }
+    },
+    {
+        "name": "Guitar",
+        "history": "old",
+        "specs": {
+            "type": [
+                "Acoustic",
+                "Eclectic",
+                "Classical"
+            ],
+            "category": [
+                "6 strings",
+                "12 strings",
+                "8 strings"
+            ]
+        }
+    },
+    {
+        "name": "Ukulele",
+        "history": "new",
+        "specs": {
+            "type": [
+                "Soprano",
+                "Concert",
+                "Tenor"
+            ],
+            "category": [
+                "12 Frets",
+                "13 Frets",
+                "14 Frets"
+            ]
+        }
+    }
+]

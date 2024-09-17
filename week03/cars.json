@@ -1,12 +1,11 @@
 [
     {
         "brand": "Toyota",
-        "model": "SUV",
         "year": 2020,
-        "wheel_type": 4,
+        "model": "SUV",
         "owner": "Alex Chow",
-        "address": {
-            "street": "Yonge St.",
+        "owner_address": {
+            "street": "12 Yonge St.",
             "province": "On",
             "city": "Toronto"
         },
@@ -34,15 +33,25 @@
         ]
     },
     {
-        "brand": "Toyota",
+        "brand": "Nissan",
+        "year": 2021,
         "model": "SUV",
-        "year": 2020,
-        "wheel_type": 4
+        "owner": "Sam Simpson",
+        "owner_address": {
+            "street": "122 Yonge St.",
+            "province": "On",
+            "city": "Toronto"
+        }
     },
     {
-        "brand": "Toyota",
+        "brand": "Honda",
+        "year": 2022,
         "model": "SUV",
-        "year": 2020,
-        "wheel_type": 4
+        "owner": "Sally Grays",
+        "owner_address": {
+            "street": "1150 Yonge St.",
+            "province": "On",
+            "city": "North York"
+        }
     }
 ]

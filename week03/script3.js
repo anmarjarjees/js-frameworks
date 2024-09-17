@@ -3,38 +3,43 @@ Working with promises - Part3 - Async/Await:
 ********************************************
 */
 
-/*
-        Async/Await:
-        This concept is common in other programming languages also
+/* 
+    Async/Await:
+    ************ 
+    - Async/await is a "syntactic sugar"* that makes writing asynchronous code easier and more readable by allowing code to be written in a synchronous style while still performing non-blocking operations.
 
-        > Synchronous code runs in sequence. 
-          - only one task are being executed at a time
-          - each operation must wait for the previous one to complete before executing.
+    - The concept of async/await is common in many programming languages, 
+    including JavaScript, Python, and C#.
 
-        > Asynchronous code runs in parallel. 
-          - multiple tasks can be executed at a time
-          - an operation can occur while another one is still being processed.
+    - async and await simplify working with Promises by providing a more readable and straightforward way to handle asynchronous operations compared to using raw Promises and .then() chains:
+        > async makes a function return a Promise, even if it doesn't explicitly return one.
+        > await pauses the execution of an async function until the Promise it's waiting for is resolved or rejected.
 
-        Async/Await is just a "Syntactic Sugar"* of using "Promises" in JavaScript
-
-        - async and await make promises "easier" to write :-)
-        - async makes a function return a Promise
-        - await makes a function wait for a Promise
-        - Modern way of coding with promises
-
-        * Syntactic sugar is a term for a more concise syntax 
-        that provides the same functionality for something that already exists.
+    * Syntactic Sugar:
+    - refers to syntax that is designed to make code easier to write and read 
+    while providing the same functionality as an existing feature. 
+    - It simplifies complex operations or constructs without changing their underlying behavior.
 */
 
 /*
-    The keyword "async":
+    The Keyword "async":
     ********************
+    The "async" keyword is used to declare an asynchronous function.
+    - An "async" function always returns a "Promise".
+    - If the function returns a value, that value is automatically wrapped in a "Promise".
+    - If the function throws an error, the error is returned as a rejected "Promise".
+
+    Example Syntax for an "async" Function:
 */
-// Starting with the very basic:
-// Instead of going with new Promises and .then() and ... we can just use the keyword "async"
-// the syntax
+
 async function anyName() {
-    // await // any task to be done
+    // Inside an async function, you can use "await" to pause execution
+    // until a Promise is resolved or rejected.
+
+    // await somePromise; // Example of using await with a Promise
+
+    // Code execution continues after the Promise is settled
+    // Any code here will run after "somePromise" resolves or rejects
 }
 /* 
 Any function declared with the "async" keyword automatically returns a Promise, 
@@ -56,25 +61,23 @@ function checkNumber(x) {
 console.log(checkNumber(8)); // Even
 
 /* 
-Using "async" makes this function returns a promise
-
 Consider the two-case scenarios:
 ********************************
-> If the function returns a value "Even" or "Odd", 
-that value is automatically wrapped in a "resolved" Promise.
+> If the function returns a value, such as "Even" or "Odd", 
+that value is automatically wrapped in a resolved Promise.
 
 > If the function throws an error, 
-that error is automatically wrapped in a "rejected" Promise.
+that error is automatically wrapped in a rejected Promise.
 */
 async function checkValue(x) {
     return x % 2 == 0 ? "Even" : "Odd";
 }
 
 // Calling our function "checkValue" normally:
-console.log(checkValue(8));
+console.log(checkValue(8)); // Output: Promise {<resolved>: "Even"}
 
 /* 
-Sine our function "checkValue" returns a promise,
+Since our function "checkValue" returns a promise,
 we can handle the returned Promise using .then():
 */
 checkValue(4).then(result => {
@@ -88,114 +91,119 @@ checkValue(4).then(result => console.log(result)); // Output: "Even"
 checkValue(20).then(console.log); // Output: "Even"
 
 /*
-   The keyword "await":
+   The Keyword "await":
    ********************
-   Async and Await both go together :-)
-   > The keyword "await" only works inside "async" function
-   > "await" will simply pause the code from being running in that specific line 
-   till the promise is fulfilled
+   "async" and "await" work together to simplify asynchronous code.
+   > The keyword "await" only works inside async functions.
+   > "await" pauses the execution of the async function at that specific line 
+     until the Promise it is waiting for is fulfilled.
 
    In other words, "await" is used to pause the execution of an async function 
-   until a Promise is resolved or rejected.
-   It is generally used when the right-hand side of the await is a Promise 
-   that you want to wait for before continuing.
+   until a Promise is resolved or rejected. It is generally used when the 
+   right-hand side of the `await` expression is a Promise that you want to wait 
+   for before continuing.
 */
 
 // Bad Example => Unnecessary use of "await" below!
 async function checkValue(x) {
     /* 
-    "await" below does nothing useful! 
-    Yes, we can be remove it without changing the behavior of the function
-    */
-    return await x % 2 == 0 ? "Even" : "Odd";
+   The use of "await" here is unnecessary.
+   Since "x % 2 == 0" is not a Promise, using "await" has no effect 
+   and can be removed without changing the behavior of the function.
+
+   Warning: 'await' has no effect on the type of this expression.
+   */
+    return await (x % 2 == 0 ? "Even" : "Odd");
     /*  
-    The expression await x % 2 == 0 effectively becomes await true or await false, 
-    which makes no sense because await is meant for Promises!
-    So using "await" here is unnecessary because it is not dealing with a Promise.
+    The expression "x % 2 == 0" effectively becomes either/or:
+    > await true 
+    > await false
+    which is not meaningful! Because "await" is meant for Promises, 
+    not for immediate values like boolean expressions!
     */
 }
 
 /* 
-A basic example of using "await"
-with our previous function:
+A Basic Example of Using "await" 
+with Our Previous Function:
 
-Let's try to test the keyword "await",
-Creating a "async" function named "test"
-this function must has "async"
-because we are using await inside it
+Let's test the keyword "await" by creating an async function named "test".
+This function must be declared as "async" because we are using "await" inside it.
 
-A simple demonstration about how to use "await" 
-to handle the result of a Promise returned by an async function:
+This example demonstrates how to use "await" to handle the result of a Promise 
+returned by the async function "checkValue":
 */
 async function test() {
+    // Using "await" to pause execution until "checkValue(4)" resolves
     const result = await checkValue(4);
     console.log(result); // Output: "Even"
 }
 
+// Call the async function "test"
 test();
 
 /* 
-A better example of using "await" 
-to deal with asynchronous operations that return Promises
+A Better Example of Using "await" 
+to Handle Asynchronous Operations Returning Promises
 */
-const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";
+const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";;
 
-// example of fetch(), we will simplify it with async/await :-)
+// Example of fetch(), simplified with async/await
 /*
-Just by creating a function and adding the keyword "async":
-
-If we use "await" without "async", Error:
+- By creating an async function and using "await", we can handle asynchronous operations more cleanly.
+- Using "await" outside of an async function will result in an error:
 'await' expressions are only allowed within async functions and at the top levels of modules.
 */
 async function getData(url) {
-    // using fetch() but instead of chaining its values with .then(), we will use "await"
+    // Using fetch() but instead of chaining its values with .then(), we will use "await"
     /*
-    Now await() stops the fetch() from assigning the returned value to "response",
-    until there is a response from the API request to be given.
-    Or until the promise from fetch has been fulfilled (resolved)
+    await() stops the fetch() from assigning the returned value to "response",
+    until there is a response from the API request.
+    Or until the promise from fetch has been fulfilled (resolved).
     */
+    // Fetch data from the given URL
+    // "await" pauses execution until fetch() resolves
     const response = await fetch(url);
     /*
-    Now we need to deal with response (the returned result),
-    we used .then() in the previous code then json() method
+    Now we need to deal with the response (the returned result),
+    we used .then() in the previous code with json() method
 
     No need for .then() when we have "async" function since we have "await" inside it
-    we can use .json() method with another "await" keyword that will also returns a promise
+    We can use .json() method with another "await" keyword that will also return a promise.
     */
     const data = await response.json();
 
     // Testing:
-    // console.log(data); // (3) [{…}, {…}, {…}]
+    // console.log(data); // (3) [{…}, {…}, {…}]
 
-    // instead of console.log the data,
-    // let's return these data so we can use it outside this function
+    // Instead of logging the data,
+    // let's return these data so we can use it outside this function.
     return data;
 }
 
 /* 
-In the example above with getData(url) function, 
-await is used correctly to pause the execution until the Promises returned by fetch 
-and response.json() are resolved.
+In the example above with "getData(url)", "await" is used correctly to pause execution 
+until the Promises returned by fetch() and response.json() are resolved.
+This makes handling asynchronous operations cleaner and more readable.
 */
-
 
 // Finally: Getting the returned value of "data" from the function getData() 
 /*
 NOTE:
-Because "getData()" is async function, 
-any async function returns a promise
-we need to use or chain it with .then() as getData() will just return a promise
-so .then() will receive as a parameter a callback arrow function by passing the argument "data"
-and console it:
+Because "getData()" is an async function, 
+any async function returns a promise.
+We need to use or chain it with .then() as getData() will just return a promise.
+So .then() will receive as a parameter a callback arrow function by passing the argument "data"
+and log it:
 */
 // getData().then().catch().finally();
 getData(url)
     .then(data => {
-        console.log(data);  // (3) [{…}, {…}, {…}]
+        console.log(data);  // (3) [{…}, {…}, {…}]
     })
-    // We can continue the chaining with .catch() to catch the errors:
+    // We can continue the chaining with .catch() to catch errors:
     .catch(err => console.log(`Unable to complete the task: ${err.message}`));
 
 // Just to recap :-) 
-// the callback function can also be written without { } as it has only one line:
+// The callback function can also be written without { } as it has only one line:
 getData(url).then(console.log).catch(err => console.log(err.message));

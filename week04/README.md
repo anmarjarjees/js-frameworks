@@ -4,6 +4,9 @@ Notice that the code files (examples) of this week (4) are taken from my GitHub 
 It's strongly recommended to read/review the [README.MD](https://github.com/anmarjarjees/node.js-start) file of "Starting with Node" repo.
 
 # Code File Sequence:
-- [https://github.com/anmarjarjees/node.js-start/tree/main/1.basic]() => Basic: Global Objects - Global "process" module
-- [https://github.com/anmarjarjees/node.js-start/tree/main/2.events]() => Events and Callback Functions Concepts 
-- [https://github.com/anmarjarjees/node.js-start/tree/main/3.files]() => File System "fs" module
+- Basic: Global Objects - Global "process" module:
+    - https://github.com/anmarjarjees/node.js-start/tree/main/1.basic
+- Events and Callback Functions Concepts:
+    - https://github.com/anmarjarjees/node.js-start/tree/main/2.events
+- File System "fs" module
+    - https://github.com/anmarjarjees/node.js-start/tree/main/3.files

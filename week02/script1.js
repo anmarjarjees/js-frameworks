@@ -3,6 +3,55 @@ Working with Promises - Part 1: The Basics
 *******************************************
 */
 
+// Before diving into the concept of "Promises", let's review again "anonymous functions"
+// ES6 introduced arrow functions as a shorter syntax for anonymous functions
+
+// Examples of arrow functions (For reviewing):
+// ********************************************
+// Basic Simple Normal Function :-)
+function sub(x, y) {
+    return x - y;
+}
+
+// Basic Anonymous (no-name) and Arrow function with no parameters
+() => {
+    console.log('No parameters');
+}
+
+// Anonymous and Arrow function with no parameters
+(x, y) => {
+    return x + y;
+}
+
+// Anonymous and Arrow function with one parameter
+// we can omit the () since we have only one parameter
+x => {
+    return x * x;
+}
+
+// Arrow function with two parameters
+let add = (x, y) => {
+    return x + y;
+}
+
+// Anonymous arrow function accepting two parameters
+(x, y) => {
+    return x * y;
+}
+
+// Anonymous arrow function accepting one parameter [parentheses can be omitted]
+x => {
+    return x * x;
+}
+
+/* 
+Notice the following:
+- if the function has one statement, we can omit the { } (as usual)
+- arrow function can implicitly return a value without "return" if there is no { }
+*/
+let div = (x, y) => x / y;
+
+
 /*
 JavaScript (JS) was originally designed as a "single-threaded", 
 "synchronous" language.
@@ -36,12 +85,19 @@ Examples include fetching data from a server or reading a file.
 > Promise:
 A promise is an object that represents the eventual completion (or failure) 
 of an asynchronous operation and its resulting value. When we create a promise, 
-we’re indicating that we’re working on something and will notify when it’s done.
+we're indicating that we're working on something and will notify when it's done.
 */
 
 /* 
-Let's explore how JavaScript handled asynchronous operations before Promises 
-using callbacks. We’ll use:
+Let's explore how JavaScript handled asynchronous operations before Promises.
+
+To Review "Callback":
+*********************
+A "callback" in JavaScript:
+> is a function passed as an argument to another function
+> this function is executed after the completion of a task, allowing for asynchronous operations
+
+using "callbacks". We'll use:
 > A callback function
 > "setTimeout()" to simulate delaying the execution of a function
 
@@ -70,45 +126,6 @@ setTimeout(function, delay)
 
 // Using setTimeout to delay the execution of "callback()" by 3 seconds
 setTimeout(callback, 3000); // 3 seconds (1 second = 1000 milliseconds)
-
-// ES6 introduced arrow functions as a shorter syntax for anonymous functions
-
-// Examples of arrow functions (For reviewing):
-// ********************************************
-
-// Basic Simple Normal Function :-)
-function sub(x, y) {
-    return x - y;
-}
-
-// Basic Anonymous (no-name) and Arrow function with no parameters
-() => {
-    console.log('No parameters');
-}
-
-// Anonymous and Arrow function with no parameters
-(x, y) => {
-    return x + y;
-}
-
-// Anonymous and Arrow function with one parameter
-// we can omit the () since we have only one parameter
-x => {
-    return x * x;
-}
-
-// Arrow function with two parameters
-let add = (x, y) => {
-    return x + y;
-}
-
-/* 
-Notice the following:
-- if the function has one statement, we can omit the { } (as usual)
-- arrow function can implicitly return a value without "return" if there is no { }
-*/
-let div = (x, y) => x / y;
-
 
 // Using an arrow function with setTimeout
 setTimeout(() => {
@@ -274,9 +291,8 @@ But this can be avoided by using:
 > Or .catch() clause
 
 .then(cb1,cb2):
-- cb1 => callback function to be run if the promise is resolved
-- cb2 => callback function to be run if the promise is rejected
-
+- cb1 => callback function to be run if the promise is "resolved"
+- cb2 => callback function to be run if the promise is "rejected"
 .then (
     ()=>{},
     ()=>{}
@@ -314,17 +330,6 @@ promise.then(
         console.log(`Inside .then() method = Rejected Promise => ${error}`);
     }
 );
-
-// In ES6 to recap:
-// Anonymous arrow function accepting two parameters
-(x, y) => {
-    return x * y;
-}
-
-// Anonymous arrow function accepting one parameter [parentheses can be omitted]
-x => {
-    return x * x;
-}
 
 // Second: Using "catch()":
 // catch() handles only the rejection case
@@ -370,7 +375,6 @@ myPromise.then(
 Functions can return a promise!
 *******************************
 */
-
 // Example 1: Basic:
 function makePizza() {
     return new Promise((resolve, reject) => {

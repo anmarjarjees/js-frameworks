@@ -65,6 +65,7 @@ const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";
 
 // Fetching the URL and logging the Promise object
 let res = fetch(url);
+// for testing:
 console.log(res);
 /* 
 Output:
@@ -80,6 +81,9 @@ Promise {<pending>}
         [[PromiseState]]: "fulfilled"
     [[PromiseResult]]: Response
 */
+
+// Fetching and logging the response object
+// Code Template: fetch(url).then((response) => console.log(response));
 
 // Fetching a non-existent URL to demonstrate error handling
 fetch("http://api.non-exists-website-demo.org/no-json-file.json")
@@ -179,6 +183,23 @@ fetch(url)
         data.forEach(element => {
             console.log(element.name); // Piano Guitar Ukulele
         });
+    });
+
+// Final example with our musical instruments JSON file :-)
+// printing on the HTML document (page) with HTML elements for formatting:
+fetch(url)
+    // Parentheses are optional
+    .then((response) => response.json())
+    .then((data) => {
+        let ul = "<ul>";
+        data.forEach(element => {
+            ul += "<li>" + element.name + "</li>";
+            console.log(element.name);
+        });
+        ul += "</ul>";
+        // document.write(ul);
+        document.getElementById("instruments").innerHTML = ul;
+
     });
 
 /*

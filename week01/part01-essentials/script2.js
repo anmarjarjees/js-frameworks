@@ -28,14 +28,14 @@ let testEvenOddTry2 = function (number) {
     }
 }
 
+// ES6: Arrow Functions:
+// 2015 => JavaScript => ECMAScript (ES 6)
 /*
  An arrow function expression is a compact alternative to a traditional function expression,
  but is limited and can't be used in all situations.
 
  using the "=>"
  */
-
-// ES6: Arrow Functions:
 
 // Arrow Function with () and parameters:
 let getAverage3 = (num1, num2) => {

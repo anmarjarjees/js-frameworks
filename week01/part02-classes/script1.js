@@ -25,8 +25,10 @@ window.prompt("what's your name?");
     Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 */
 
-/*
-Access Modifiers (Visibility Modifiers) in Java:
+/* 
+OOP => A PIE 
+
+Access Modifiers (Visibility Modifiers) in "Java":
 - Java: public => in JS by default
 - Java: private => in JS using the # symbol
 - Java: protected

@@ -7,7 +7,7 @@ Because it doesn't
 */
 class Rectangle {
     // Class Properties: variables
-    // Access Modifiers (Visibility Modifiers)
+    // Access Modifiers (Visibility Modifiers): public, private, protected
     // private => # symbol => cannot be accessed outside this class
 
     // Two private properties:

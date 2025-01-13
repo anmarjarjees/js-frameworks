@@ -65,12 +65,38 @@ const property = 'fullName';
 student[property] = 'Kate Wilson';
 console.log(student);
 
-// JSON - JavaScript Object Notation Format:
+// JSON - "JavaScript Object Notation" Format:
 let jsonExample = {
     "brand": "Toyota",
     "year": 2020,
     "model": "SXT"
 }
+
+// Another example of a variable with JSON Object value:
+let jsonSample = {
+    "name": "Sam",
+    "age": 27,
+    "isMarried": true,
+    "title": "programmer"
+}
+
+let jsonArray = [
+    {
+        "name": "Alex",
+        "program": "CMPG",
+        "semester": 2
+    },
+    {
+        "name": "Sam",
+        "program": "CSTN",
+        "semester": 3
+    },
+    {
+        "name": "Kate",
+        "program": "CMPG",
+        "semester": 1
+    },
+];
 /* 
 For validation: https://jsonlint.com/
 Creating a JSON file, for example:

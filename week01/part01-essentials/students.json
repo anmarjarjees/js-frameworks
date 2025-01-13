@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Alex",
+        "program": "CMPG",
+        "semester": 2
+    },
+    {
+        "name": "Sam",
+        "program": "CSTN",
+        "semester": 3
+    },
+    {
+        "name": "Kate",
+        "program": "CMPG",
+        "semester": 1
+    }
+]

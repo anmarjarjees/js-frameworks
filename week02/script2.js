@@ -1,98 +1,244 @@
-/*
-A PIE in OOP (Object-Oriented Programming):
-Abstraction
-Encapsulation
-Inheritance
-Polymorphism
+/* 
+Working with promises - Part2 - "fetch()":
+******************************************
 */
-// P: Overload and Override
-// one more example
-class Person {
-    /*
-    Properties: Class fields (variables inside a class)   
-    NOTE:
-    Declaring the class property before initializing it
-    It's an optional Step!  
-    If you omit this optional step, 
-    the code line => this.name = name; in the constructor 
-    will create the name property before initializing it.
-    
-    But listing properties explicitly in the class declaration 
-    is better for readability
-    to see which properties are part of this class.
-    Link: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript
-    */
 
-    // Declaring the class property before initializing it (Optional Step but good for readability)
-    name; // we don't use let or const
+/*
+We used to use XMLHttpRequest(); => with JSON
 
-    constructor(name) {
-        this.name = name;
+Simplify the code of AJAX API request from the previous way
+by using the ES6 "Fetch API" with "fetch()" method
+
+- The Fetch API provides an interface for fetching resources
+  (including across the network). 
+- It requires only one parameter, which is the URL of the resource that you want to fetch.
+- fetch() => returns a Promise object.
+- Since fetch() method returns a "Promise", you can use .then() and .catch() methods to handle it :-)
+
+// Basic fetch request example:
+fetch('http://example.com/movies.json')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+// fetch() does not directly return the JSON response body 
+// but instead returns a promise that resolves with a Response object.
+
+Link: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+*/
+
+// JSON Review
+
+// Basic example of JSON:
+const jsonExample = {
+    "day": "Wed",
+    "temperature": 36,
+    "unit": "F",
+    "status": "Cloudy"
+};
+
+// Basic example of a JSON Array:
+const jsonArray = [
+    {
+        "id": 123,
+        "actor": "Tom Hanks",
+        "movies": 38
+    },
+    {
+        "id": 783,
+        "actor": "James Dean",
+        "movies": 25
+    },
+    {
+        "id": 223,
+        "actor": "Tom Crouse",
+        "movies": 48
     }
+];
 
-    // a method: a function inside a class
-    greet() {
-        document.write(`<br>Hello ${this.name}!`);
-    }
-} // class Person
+/*  
+Online JSON Validator: https://jsonlint.com/
+VS Code can also highlight errors in a JSON file :-)
+*/
 
-// Inheritance: using "extends" keyword
-class Member extends Person {
-    // nothing, just an empty class
-}
+// URL for testing:
+const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";
 
-class User extends Person {
-    // Property:
-    age;
-    constructor(name, age) {
-        // call the constructor from the super class:
+// Fetching the URL and logging the Promise object
+let res = fetch(url);
+console.log(res);
+/* 
+Output:
+*******
+Promise {<pending>}
+    [[Prototype]]: Promise
+        catch: ƒ catch()
+        constructor: ƒ Promise()
+        finally: ƒ finally()
+        then: ƒ then()
+        Symbol(Symbol.toStringTag): "Promise"
+        [[Prototype]]: Object
+        [[PromiseState]]: "fulfilled"
+    [[PromiseResult]]: Response
+*/
+
+// Fetching a non-existent URL to demonstrate error handling
+fetch("http://api.non-exists-website-demo.org/no-json-file.json")
+    .then(response => {
+        // Handle the response
+        console.log(response);
+    })
+    .catch(error => {
+        // Handle the error
         /*
-        Using the super() function
-        super() function is used to pass values to the parent class
-        we can use "super" keyword with a method name to access methods from the parent class
-        
-        You can think about super() as we are calling the constructor() function 
-        from the parent/superclass and passing the value(s) for its required parameter(s)
-        as we do in Java
+        Beside the JS errors, you will see this error message:
         */
-        super(name);
+        console.log("The error that we have is: " + error);
+        // The error that we have is: TypeError: Failed to fetch
+    });
 
-        // Adding the new properties for the subclass
-        this.age = age;
-    }
+// Fetching and logging the response object
+fetch(url).then((response) => console.log(response));
 
-    // Override: Modify the greet() method from the superclass
-    /*
-    Overriding Method or Property
-    If the child/subclass has the same method or property name as that of the parent/superclass, 
-    its instance (object) will use the method and property of the child/subclass. 
-    In OOP, this concept is called method overriding:
-    */
-    greet() {
-        document.write(`<br>Hello ${this.name}! Your age is ${this.age}`);
-    }
-} // class User
+/*
+Using .json() method:
+*********************
+The response object that's returned by fetch()
+> has a method named json()
+> The "json()" method parses the body as JSON
 
-// Another example
-class Instructor extends Person {
-    constructor(name, course) {
-        super(name); // Now, we are done with required parameter(s) in the superclass
-        this.course = course;
-    }
+As you see the result above, there is a "body" property
+that contains the data.
+*/
 
-    teach() {
-        document.write(`<br>My name is ${this.name}, and I will be your "${this.course}" instructor.`);
-    }
+fetch(url)
+    .then((response) => {
+        // Parse the response body as JSON
+        const data = response.json();
+        console.log(data);
+    })
 
-    greet() {
-        document.write(`<br>Hello all, my name is ${this.name} and I will be your instructor to teach you using "My Way"!`);
-    }
-} // class Instructor
+// Using chaining with .json() method:
+fetch(url)
+    // The parentheses are optional
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 
-// Main Script:
-let member1 = new Member("Alex Chow"); // calling the constructor from the parent class/superclass
-member1.greet(); // calling the method .greet() from the superclass
+/* 
+Output: data is an array of JSON objects
+(3) [{…}, {…}, {…}]
+0: {name: 'Piano', history: 'very old', specs: {…}}
+1: {name: 'Guitar', history: 'old', specs: {…}}
+2: {name: 'Ukulele', history: 'new', specs: {…}}
+length: 3
+[[Prototype]]: Array(0)
+*/
 
-let user1 = new User("Kate Wilson", 28);
-user1.greet(); // the override method from the sub-class
+/* 
+IMPORTANT NOTES:
+****************
+NOTE#1:
+ > This "arrow function" is without block body { ... }:
+   (response) => response.json()
+ > It implicitly returns the result of response.json()
 
+NOTE#2:
+ > This "arrow function" uses a block body { ... }:
+   (response) => { response.json() } 
+ > In a block body, if we do not explicitly use the return statement, 
+   the function returns "undefined" by default.
+*/
+
+// Example 1: code below shows "undefined": no return with function body:
+fetch(url)
+    // Implicit Return:
+    .then((response) => { response.json() })
+    .then((data) => console.log(data));
+
+// Example 2: code below shows the JSON array: using return with function body:
+fetch(url)
+    // Explicit Return
+    .then((response) => { return response.json() })
+    .then((data) => console.log(data));
+
+// Task: Print the name of the first instrument "Piano"
+/*
+    Index 0 => property "name" => the value "Piano"
+*/
+fetch(url)
+    // Parentheses are optional
+    .then(response => response.json())
+    .then(data => console.log(data[0].name)); // Piano
+
+/*
+
+*/
+fetch(url)
+    // Parentheses are optional
+    .then((response) => response.json())
+    .then((data) => {
+        data.forEach(element => {
+            console.log(element.name); // Piano Guitar Ukulele
+        });
+    });
+
+/*
+     Let's try GitHub API to grab some info from commits: (commit -m "message")
+
+     The pattern (syntax) to follow: 
+     https://api.github.com/repos/YOUR_GITHUB_ID/YOUR_REPO_NAME/commits
+
+     Example:
+     https://api.github.com/repos/alexchow/my-java-repo/commits
+
+     Let's try to grab the commits of "Microsoft" for "vscode" repo
+     URL: https://github.com/microsoft/vscode
+     API URL: https://api.github.com/repos/microsoft/vscode/commits
+
+     IMPORTANT NOTE: 
+     Don't forget the error of the API request about "CORS" policy:
+     from origin 'null' has been blocked by CORS policy: 
+     Cross-origin requests are only supported for protocol schemes: 
+     http, data, isolated-app, chrome-extension, chrome, https, chrome-untrusted.
+
+     CORS: is a security feature implemented by browsers to prevent web pages 
+     from making requests to a different domain than the one that served the web page. 
+     This is to prevent malicious websites from accessing sensitive information from another site.
+
+     Error Message: 
+     Indicates that the request is being blocked 
+     because it is not made over a supported protocol (http, https, etc.), and the origin is 'null'
+     
+     Solutions:
+     **********
+     1. Instead of running the file directly, you should serve it via a local server. 
+        For example, using XAMPP with "localhost".
+     
+     2. Using ExpressJS with "cors" middleware to enable "CORS" (for later...):
+     
+        Code Example:
+        app.use(cors());
+     
+     3. Using a proxy server to bypass CORS restrictions (Just for development, NOT for production). 
+        "cors-anywhere" => free service
+     
+        Code Example:
+        fetch('https://cors-anywhere.YourURL')
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+ */
+
+const gitApiUrl = "https://api.github.com/repos/microsoft/vscode/commits";
+
+// Fetching the GitHub API and logging the response
+fetch(gitApiUrl)
+    .then(response => response.json())
+    .then(console.log); // shorthand for: console.log(response)
+
+/*
+    You can also reveal the response object in the console window 
+    to know how to access all its properties and values as we are going to do below
+*/
+fetch(gitApiUrl)
+    .then(response => response.json())
+    .then(response => console.log(response[0].author.login
+    )); // Any name (id) who made the recent changes

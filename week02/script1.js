@@ -1,123 +1,429 @@
-console.log("testing the Js");
-/*
-Browser => the "window" object
-
-this "window" object has these two methods:
-> alert("test");
-> prompt("what's your name?");
-
-No need to use window (optional):
-window.alert("Access Denied!");
-window.prompt("what's your name?");
-*/
-
-// alert("Alert Window");
-// let name = prompt("What's your name?");
-// document.write("<h1>Review JS</h1>");
-
-/*
-    Classes:
-    Classes are a template for creating objects. 
-    Class is not an object itself, but a template (blue print) for objects
-    They encapsulate data with code to work on that data. 
-    Classes in JS are built on prototypes but also have some syntax and semantics 
-    that are not shared with ES5 class-like semantics.
-    Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+/* 
+Working with Promises - Part 1: The Basics
+*******************************************
 */
 
 /*
-Access Modifiers (Visibility Modifiers) in Java:
-- Java: public => in JS by default
-- Java: private => in JS using the # symbol
-- Java: protected
-- Java: default (if nothing is specified)
+JavaScript (JS) was originally designed as a "single-threaded", 
+"synchronous" language.
+
+In plain English, JS executes code one task at a time, meaning each task 
+must be finished before moving on to the next.
+
+- Synchronous Code:
+    > Runs sequentially.
+    > Only one task is executed at a time.
+    > Each operation must complete before the next one starts.
+
+- Asynchronous Code:
+    > Can run in a non-blocking manner.
+    > Multiple tasks can be initiated without waiting for others to complete.
+    > Allows other operations to proceed while waiting for tasks to finish.
+
+- Key Points to Note:
+*********************
+- Asynchronous code does not necessarily run tasks in parallel; 
+it simply allows other code to run while waiting for operations to complete.
+
+Promises in JS are a tool to work with "asynchronous operations".
+
+To summarize:
+*************
+> Asynchronous Operation:
+An operation that takes time to complete and doesn't finish immediately. 
+Examples include fetching data from a server or reading a file.
+
+> Promise:
+A promise is an object that represents the eventual completion (or failure) 
+of an asynchronous operation and its resulting value. When we create a promise, 
+we’re indicating that we’re working on something and will notify when it’s done.
 */
-// Classes and Objects In JS
-class Car {
-    /*
-     Constructor: 
-     - a special built-in method to construct/create an object
-     - is triggered/called when we instantiate an object from this class
-     - if you do not define a constructor method, 
-     JavaScript will add an empty constructor method.
-    */
-    constructor(brand, type, description, wheels, owner) {
-        /*
-        Properties => Class Variables
 
-        With class properties:
-        - We use the keyword "this" that refer to the current object of the class
-        - We DO NOT use "const", "let", or "var"
-        */
+/* 
+Let's explore how JavaScript handled asynchronous operations before Promises 
+using callbacks. We’ll use:
+> A callback function
+> "setTimeout()" to simulate delaying the execution of a function
 
-        // This class has five initial properties:
-        this.brand = brand;
-        // in Java => private String brand;
-        this.type = type;
-        this.description = description;
-        this.wheels = wheels;
-        this.owner = owner;
+The term "Callback":
+A callback is a function passed as an argument to another function. It is 
+invoked after the completion of some operation.
+*/
 
-        /*
-        NOTE: 
-        Please be advised that "this" keyword is required to access class methods 
-        within the class itself.
-        Otherwise, JS will will trow this error: 
-        "Uncaught ReferenceError: wheel is not defined"
-        */
+// Creating a function named "callback" to output a message
+function callback() {
+    // Using console to display a message after the timeout
+    console.log('Time is completed for the current task after 3 seconds!');
+}
+
+/*
+Note: In Node.js, setTimeout() is part of the environment.
+In a browser, setTimeout() is part of the "window" object:
+- setTimeout()
+- or window.setTimeout()
+
+Syntax:
+setTimeout(function, delay)
+- function: The function to be executed after the delay.
+- delay: Time to wait before executing the function, in milliseconds.
+*/
+
+// Using setTimeout to delay the execution of "callback()" by 3 seconds
+setTimeout(callback, 3000); // 3 seconds (1 second = 1000 milliseconds)
+
+// ES6 introduced arrow functions as a shorter syntax for anonymous functions
+
+// Examples of arrow functions (For reviewing):
+// ********************************************
+
+// Basic Simple Normal Function :-)
+function sub(x, y) {
+    return x - y;
+}
+
+// Basic Anonymous (no-name) and Arrow function with no parameters
+() => {
+    console.log('No parameters');
+}
+
+// Anonymous and Arrow function with no parameters
+(x, y) => {
+    return x + y;
+}
+
+// Anonymous and Arrow function with one parameter
+// we can omit the () since we have only one parameter
+x => {
+    return x * x;
+}
+
+// Arrow function with two parameters
+let add = (x, y) => {
+    return x + y;
+}
+
+/* 
+Notice the following:
+- if the function has one statement, we can omit the { } (as usual)
+- arrow function can implicitly return a value without "return" if there is no { }
+*/
+let div = (x, y) => x / y;
+
+
+// Using an arrow function with setTimeout
+setTimeout(() => {
+    // Using console to display a message after the timeout
+    console.log('Good After 4 seconds of waiting, here is the result: everything is done perfectly!');
+}, 4000); // 4 seconds
+
+/*
+Using setTimeout() for multiple tasks can lead to complex, nested code.
+
+ES6 introduced "promises" to simplify handling asynchronous operations.
+
+The idea of "promises":
+A Promise is a cleaner alternative to callbacks.
+It represents the eventual completion or failure of an asynchronous operation.
+
+A promise allows attaching callbacks for handling success or failure,
+instead of passing callbacks into functions.
+
+For more information about promises, check out these resources:
+- Link: https://javascript.info/promise-basics
+- Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+- Link: https://www.w3schools.com/js/js_promise.asp
+*/
+
+/* 
+Promises: Promise Class
+***********************
+> The Promise constructor takes a function as an argument.
+> This function, known as the "executor," lets us resolve or reject a promise manually.
+> The function accepts two parameters: resolve and reject (by convention).
+> These parameters indicate the completion or failure of the asynchronous operation.
+
+Resolved / Rejected:
+*/
+
+// Constructor syntax for a promise object "promiseObj1":
+let promiseObj1 = new Promise(function (resolve, reject) {
+    // executor (the producing code, "singer")
+});
+
+// Constructor syntax with arrow function
+let promiseObj2 = new Promise((resolve, reject) => {
+    // executor (the producing code, "singer")
+});
+console.log(promiseObj2); // Promise { <pending> }
+
+/*
+NOTES:
+******
+1. The arguments "resolve" and "reject" are callbacks 
+   provided by JavaScript. Our code runs inside the executor function.
+
+2. "Resolve" and "reject" are just conventional names for these function parameters.
+   They can be named differently, e.g., new Promise((x, y) => { ... })
+
+3. JavaScript uses:
+> The first parameter for the resolve
+> The second parameter for the reject
+
+Basic Template from W3Schools:
+Link: https://www.w3schools.com/js/js_promise.asp
+*/
+
+/* 
+A simple example of "promises" with ordering a pizza :-)
+When we order a pizza, we don't get it immediately!
+> Restaurant says, "We'll get it to you in 10 - 15 minutes." This is like a "promise"
+
+Promise states:
+> Pending: While we are waiting, the pizza is being prepared
+Then:
+> Fulfilled: The pizza is ready, and we're happy :-)
+> Rejected: If there's a problem, we are not happy :-(
+
+Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#description
+*/
+
+// STEP#1: Creating the Promise object:
+// pass an anonymous arrow function => Executer Function
+let pizzaOrder = new Promise((resolve, reject) => {
+    // action/task to be done => preparing the pizza
+    let pizzaReady = true; // Checks if the pizza is ready
+    if (pizzaReady) {
+        // Resolve the promise with the message "Pizza is ready!"
+        resolve("Pizza is ready!");
+    } else {
+        // Reject the promise with the message "Pizza is not ready yet."
+        reject("Pizza is not ready yet.");
     }
-
-    /*
-    Methods:
-    > Functions inside a class
-    > We don't use the keyword "function" when we create them inside a class
-    */
-
-    // Methods: 
-    describeCar() {
-        document.write();
-        /* 
-        NOTE:
-        document => HTML document (refer to the current running web page)
-        write() => a method of document object
-        We cannot use document with node (node is using terminal)
-        */
-
-        // Concatenation => +
-        document.write(this.owner + " has " + this.type);
-        // String Template: ` ` with ${ }
-        document.write(`<p>
-            ${this.owner} has ${this.type}. 
-            It's ${this.wheel}-wheel drive. 
-            This car is ${this.description}
-        </p>`);
-    } // describeCar()
-} // end class
-
-// Main Script:
-
-// Creating a new instance (object) of a Car Class:
-// In Java=> Car car1 = new Car();
-
-// Check this example for testing:
-/*
-    Notice that I am using "let" keyword to declare a variable,
-    but it's recommended to use "const" keyword 
-    if you have no intention to change its value later
-*/
-let testCar = new Car();
-console.log(testCar);
-/*
-As we didn't pass any value, so all object properties will be "undefined":
-Car {description: undefined, wheels: undefined, owner: undefined}
-description: undefined
-owner: undefined
-wheels: undefined
-[[Prototype]]: Object
+});
+/* 
+Promise Code Explanation: 
+> Creating a new Promise object "pizzaOrder"
+> The Promise constructor takes an arrow function as an argument
+> This arrow function is called the "Executor Function"
+> The executor function has two parameters: resolve and reject (by convention)
+> resolve and reject are functions provided by JavaScript to handle the promise outcome
+> resolve is called when the promise is successful, and reject is called when there's an error
 */
 
-// Our constructor expecting these values with the same order: 
-// brand, type, description, wheels, owner
-const car1 = new Car('Nissan', "SUV", "Demo Version", 4, "Martin Smith");
+// STEP#2: Calling the promise object with its methods [then().catch().finally()]
+/* 
+Chaining the methods:
+*********************
+We can use .then().catch() chaining methods:
+> .then() method handles the fulfilled promise
+> .catch() method handles the rejected promise
+*/
 
-car1.describeCar();
+// pizzaOrder.then( (resolvedMsgArg)=>{} ).catch( (rejectedMsgArg)=>{});
+pizzaOrder.then(message => {
+    console.log(message); // Runs if the pizza was ready
+}).catch(error => {
+    console.log(error); // Runs if there was an issue with the pizza
+});
+/* 
+Promise Result Code Explanation:
+- method .then()
+    > Used to handle the successful outcome of a promise
+    > When the promise is resolved, the function provided to .then() is executed
+    > Syntax: .then(onFulfilled)
+    onFulfilled is a callback function that receives the promise result 
+    (value passed to resolve)
+
+- method .catch()
+    > Used to handle the case where a promise is rejected
+    > When the promise is rejected, the function provided to .catch() is executed
+    > Syntax: .catch(onRejected)
+    onRejected is a callback function that receives the reason for the rejection 
+    (value passed to reject)
+*/
+
+/*
+Let's take another simple example:
+a promise from a student to get a high average value 
+(A+ => 90 or more) for his/her two exams
+*/
+
+// STEP#1: 
+const highAvg = new Promise((resolve, reject) => {
+    // Simulating an asynchronous operation (successful or failed)
+    // Change the value to see both resolve and reject 
+    let exam1 = 91;
+    let exam2 = 90;
+    let avg = (exam1 + exam2) / 2;
+    if (avg >= 90) {
+        // Resolve the promise (Successful) with the message "Passing with A+"
+        resolve("Passing with A+"); // Using double quotes 
+    } else {
+        // Reject the promise (Failed) with the message "Failed to get A+"
+        reject('Failed to get A+'); // Using single quote
+    }
+});
+
+// Calling our promise object
+// Test:
+console.log(highAvg);
+/*
+Notice that JS will throw an error as "Uncaught (in promise) Failed to get A+"
+But this can be avoided by using:
+> Either .then() clause
+> Or .catch() clause
+
+.then(cb1,cb2):
+- cb1 => callback function to be run if the promise is resolved
+- cb2 => callback function to be run if the promise is rejected
+
+.then (
+    ()=>{},
+    ()=>{}
+)
+*/
+
+highAvg.then(
+    // Function for the resolved promise
+    result => {
+        // Output:
+        console.log(`Inside .then() method = Resolved Promise => ${result}`);
+    },
+    // Function for the rejected promise
+    error => {
+        // Output:
+        console.log(`Inside .then() method = Rejected Promise => ${error}`);
+    }
+);
+
+/*
+IMPORTANT NOTE: 
+- If interested only in successful completions 
+  (The resolve function), 
+  we can provide only one function argument to ".then()":
+- If there is no function to handle the reject case,
+  JS will throw the same red error: Uncaught (in promise) Failed to get A+
+*/
+
+// First: Using "null":
+promise.then(
+    // Ignoring the first function (resolve) => null 
+    null,
+    // Function for handling errors
+    error => {
+        console.log(`Inside .then() method = Rejected Promise => ${error}`);
+    }
+);
+
+// In ES6 to recap:
+// Anonymous arrow function accepting two parameters
+(x, y) => {
+    return x * y;
+}
+
+// Anonymous arrow function accepting one parameter [parentheses can be omitted]
+x => {
+    return x * x;
+}
+
+// Second: Using "catch()":
+// catch() handles only the rejection case
+// It's a shorthand for .then(null, f), focusing solely on rejection.
+promise.catch(
+    error => {
+        console.log(`Inside .catch() method = Rejected Promise => ${error}`);
+    }
+);
+
+// For better understanding, let's use promise => then => catch:
+// Promise to check if the number is even:
+
+const myPromise = new Promise((myResolve, myReject) => {
+    let num = 7;
+    if (num % 2 === 0) {
+        // Resolve the promise for an even number
+        myResolve(`The number ${num} is even`);
+    } else {
+        // Reject the promise for an odd number
+        myReject(`The number ${num} is odd`);
+    }
+});
+
+myPromise.then(
+    // Function for the resolved promise
+    passMsg => {
+        console.log("Ok, promise achieved! " + passMsg);
+    }
+).catch(
+    // Function for the rejected promise
+    failMsg => {
+        console.log("No, promise not achieved! " + failMsg);
+    }
+).finally(
+    // Always runs regardless of the promise outcome
+    () => {
+        console.log("Well done!");
+    }
+);
+
+/* 
+Functions can return a promise!
+*******************************
+*/
+
+// Example 1: Basic:
+function makePizza() {
+    return new Promise((resolve, reject) => {
+        // action/task to be done => preparing the pizza
+        let pizzaReady = false;
+        if (pizzaReady) {
+            resolve("My pizza is ready :-)");
+        } else {
+            reject("Pizza is not ready yet.");
+        }
+    });
+}
+
+// you can complete it... :-)
+makePizza().then().catch();
+
+// Example 2: Another Basic:
+function fetchData() {
+    return new Promise((res, rej) => {
+        /*
+         Code that needs time to be accomplished:
+         - Fetching an API
+         - Getting data from a database 
+         - Reading and loading a file
+         */
+        res("The data");
+        rej("No Data");
+    });
+}
+
+// Calling our function fetchData():
+fetchData()
+    .then(data => { console.log(data); })
+    .catch(error => { console.error(error); });
+
+// Example 3: Using Try-Catch:
+function getData() {
+    return new Promise((res, rej) => {
+        try {
+            /*
+            Code that needs time to be accomplished:
+            - Fetching an API
+            - Getting data from a database 
+            - Reading and loading a file
+            */
+            res("The data");
+        } catch (error) {
+            rej("No Data");
+        }
+    });
+}
+
+// Calling our function getData():
+getData()
+    .then(data => { console.log(data); })
+    .catch(error => { console.error(error); });

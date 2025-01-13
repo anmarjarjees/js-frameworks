@@ -1,4 +1,3 @@
-
 /*
    Object as an instance of class:
    *******************************
@@ -72,7 +71,13 @@ let jsonExample = {
     "year": 2020,
     "model": "SXT"
 }
-// For validation: https://jsonlint.com/
+/* 
+For validation: https://jsonlint.com/
+Creating a JSON file, for example:
+- Only one JSON object => car.json
+- A list of multiple JSON objects => cars.json
+*/
+
 
 /*
    The keyword "this" in C#/Java

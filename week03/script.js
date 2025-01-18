@@ -16,8 +16,7 @@ Working with promises - Part3 - Async/Await:
         > await pauses the execution of an async function until the Promise it's waiting for is resolved or rejected.
 
     * Syntactic Sugar:
-    - refers to syntax that is designed to make code easier to write and read 
-    while providing the same functionality as an existing feature. 
+    - Refers to syntax that is designed to make code easier to write and read while providing the same functionality as an existing feature. 
     - It simplifies complex operations or constructs without changing their underlying behavior.
 */
 
@@ -32,12 +31,16 @@ Working with promises - Part3 - Async/Await:
     Example Syntax for an "async" Function:
 */
 
+// The "async" function below will always return a Promise.
 async function anyName() {
-    // Inside an async function, you can use "await" to pause execution
-    // until a Promise is resolved or rejected.
+    /* 
+    Consider the following notes:
+    - Inside an "async" function, we can use "await" 
+    - "await" for waiting until a Promise is resolved or rejected
+    */
 
-    // await somePromise; // Example of using await with a Promise
-
+    // Example of using await with a Promise (commented out for now):
+    // await somePromise; // Pauses execution until somePromise is resolved or rejected.
     // Code execution continues after the Promise is settled
     // Any code here will run after "somePromise" resolves or rejects
 }
@@ -46,8 +49,9 @@ Any function declared with the "async" keyword automatically returns a Promise,
 regardless of the return value within the function.
 */
 
-// Below is just a simple basic function
+// Below is just a simple basic function for checking even or odd numbers
 function checkNumber(x) {
+    // The if-else version of the code could be written like this (normal block):
     /*
     if (x % 2 == 0) {
         return "Even"
@@ -55,10 +59,10 @@ function checkNumber(x) {
         return "Odd"
     }
     */
-    // Ternary Operator: short way :-)
+    // Or using the "Ternary Operator" (short way) :-)
     return x % 2 == 0 ? "Even" : "Odd";
 }
-console.log(checkNumber(8)); // Even
+console.log(checkNumber(8)); // Output: Even
 
 /* 
 Consider the two-case scenarios:
@@ -69,6 +73,8 @@ that value is automatically wrapped in a resolved Promise.
 > If the function throws an error, 
 that error is automatically wrapped in a rejected Promise.
 */
+
+// Async function that returns a value and wraps it in a Promise
 async function checkValue(x) {
     return x % 2 == 0 ? "Even" : "Odd";
 }
@@ -104,14 +110,14 @@ checkValue(20).then(console.log); // Output: "Even"
    for before continuing.
 */
 
-// Bad Example => Unnecessary use of "await" below!
+// BAD Example => Unnecessary use of "await" below!
 async function checkValue(x) {
     /* 
    The use of "await" here is unnecessary.
    Since "x % 2 == 0" is not a Promise, using "await" has no effect 
    and can be removed without changing the behavior of the function.
 
-   Warning: 'await' has no effect on the type of this expression.
+   Warning Message: 'await' has no effect on the type of this expression.
    */
     return await (x % 2 == 0 ? "Even" : "Odd");
     /*  
@@ -163,15 +169,17 @@ async function getData(url) {
     */
     // Fetch data from the given URL
     // "await" pauses execution until fetch() resolves
-    const response = await fetch(url);
+    const response = await fetch(url); // Pauses until the fetch request completes
     /*
-    Now we need to deal with the response (the returned result),
-    we used .then() in the previous code with json() method
-
+    Now we need to handle (deal with) the response (the returned result),
+    we used .then() in the previous code examples with json() method
+    
     No need for .then() when we have "async" function since we have "await" inside it
     We can use .json() method with another "await" keyword that will also return a promise.
+
+    So, instead of chaining .then(), we can just use "await" again to get the response body as JSON:
     */
-    const data = await response.json();
+    const data = await response.json(); // Pauses until response.json() resolves
 
     // Testing:
     // console.log(data); // (3) [{…}, {…}, {…}]
@@ -197,9 +205,10 @@ We need to use or chain it with .then() as getData() will just return a promise.
 So .then() will receive as a parameter a callback arrow function by passing the argument "data"
 and log it:
 */
-// getData().then().catch().finally();
+// Remember the template => getData().then().catch().finally();
 getData(url)
     .then(data => {
+        // Output of console.log will be the parsed JSON object
         console.log(data);  // (3) [{…}, {…}, {…}]
     })
     // We can continue the chaining with .catch() to catch errors:
@@ -213,32 +222,35 @@ getData(url).then(console.log).catch(err => console.log(err.message));
 Real world scenario:
 ********************
 The console window is for us as programmers to test our code and log the data,
-but our clients expect to see the content in the document!
+but our clients expect to see the content in the document! 
+We need to manipulate the DOM to display it.
 
 Consider the following two solutions:
 */
 
 // First Try: 
 /*
-Bad way of coding! for two reasons:
-1) We are using 3 lines of code for printing three elements, What if we have 25 element?
-=> We should use a loop structure instead
-2) the method document.write() will simply override the current content of the page every time we use it! so we will only see the last element "Ukulele"!
-=> we should use DOM "getElementById()"
+Bad way of coding for two reasons:
+1) We are using 3 lines of code for printing three elements. What if we have 25 elements?
+    > We should use a loop structure instead.
+2) The method document.write() will override the entire content of the page every time we use it! So we will only see the last element "Ukulele".
+    > It's better to use DOM manipulation with getElementById() to insert content more efficiently.
 */
 
+// Notice that these lines of code would overwrite the page content:
 // getData(url).then((data) => document.write("<br>" + data[0].name)); // Piano
 // getData(url).then((data) => document.write("<br>" + data[1].name)); // Guitar
 // getData(url).then((data) => document.write("<br>" + data[2].name)); // Ukulele
 
-// One of the good solution to apply the two key points: loop and dom:
+// A better solution: Use a loop and DOM manipulation to display all items dynamically:
 getData(url).then(data => {
-    let ulElement = "<ul>";
+    let ulElement = "<ul>"; // Start an unordered list
     data.forEach(element => {
         // document.write("<br>" + element.name);
         // document.getElementById("instruments").innerText = element.name;
-        ulElement += "<li>" + element.name + "</li>";
+        ulElement += "<li>" + element.name + "</li>"; // Add each item as a list element
     });
-    ulElement += "</ul>";
+    ulElement += "</ul>"; // Close the unordered list
+    // Insert the list into the HTML:
     document.getElementById("instruments").innerHTML = ulElement;
 }); 

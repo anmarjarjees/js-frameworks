@@ -1,4 +1,1 @@
-# Week06:
-Lab Assignment and Full Presentations
-
-
+Testing your knowledge for the first part

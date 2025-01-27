@@ -44,11 +44,11 @@ async function anyName() {
     // Code execution continues after the Promise is settled
     // Any code here will run after "somePromise" resolves or rejects
 }
-/* 
-Any function declared with the "async" keyword automatically returns a Promise, 
-regardless of the return value within the function.
-*/
 
+/* 
+To recap:
+Any function declared with the "async" keyword automatically returns a Promise, regardless of the return value within the function
+*/
 // Below is just a simple basic function for checking even or odd numbers
 function checkNumber(x) {
     // The if-else version of the code could be written like this (normal block):
@@ -149,6 +149,11 @@ async function test() {
 test();
 
 /* 
+So Async/Await are the syntactic sugar of using Promise
+Remember our example about the Pizza promise :-)
+*/
+
+/* 
 A Better Example of Using "async" and "await"  
 to Handle Asynchronous Operations Returning Promises
 */
@@ -160,6 +165,17 @@ const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";
 - Using "await" outside of an async function will result in an error:
 'await' expressions are only allowed within async functions and at the top levels of modules.
 */
+
+/* 
+Example: 
+"async" function anyName() {
+    "await" to do a major task(s) like:
+    > fetching online recourse data
+    > fetching data from database 
+    > fetching data from the server side to the client side
+}
+*/
+
 async function getData(url) {
     // Using fetch() but instead of chaining its values with .then(), we will use "await"
     /*
@@ -169,7 +185,12 @@ async function getData(url) {
     */
     // Fetch data from the given URL
     // "await" pauses execution until fetch() resolves
+
+    // Task#1: fetching the data => await
     const response = await fetch(url); // Pauses until the fetch request completes
+
+    // Testing:
+    console.log(response); // the full promise object
     /*
     Now we need to handle (deal with) the response (the returned result),
     we used .then() in the previous code examples with json() method
@@ -179,6 +200,8 @@ async function getData(url) {
 
     So, instead of chaining .then(), we can just use "await" again to get the response body as JSON:
     */
+
+    // Task#2: Parsing the data => await
     const data = await response.json(); // Pauses until response.json() resolves
 
     // Testing:
@@ -186,7 +209,7 @@ async function getData(url) {
 
     // Instead of logging the data,
     // let's return these data so we can use it outside this function.
-    return data;
+    return data; // Only the JSON content
 }
 
 /* 

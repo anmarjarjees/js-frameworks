@@ -15,5 +15,3 @@ It's strongly recommended to read/review the [README.MD](https://github.com/anma
     - https://github.com/anmarjarjees/node.js-start/tree/main/1.basic
 - Events and Callback Functions Concepts:
     - https://github.com/anmarjarjees/node.js-start/tree/main/2.events
-- File System "fs" module
-    - https://github.com/anmarjarjees/node.js-start/tree/main/3.files

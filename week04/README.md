@@ -4,6 +4,8 @@ Notice that the code files (examples) of this week are taken from my GitHub repo
 It's strongly recommended to read/review the [README.MD](https://github.com/anmarjarjees/node.js-start) file of "Starting withNode" repo.
 
 # Code File Sequence:
+- File System "fs" module
+    - https://github.com/anmarjarjees/node.js-start/tree/main/3.files
 - Node HTML Pages:
     - https://github.com/anmarjarjees/node.js-start/tree/main/4.node_pages
 - Modules and NPM Summary:

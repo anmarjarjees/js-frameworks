@@ -11,7 +11,7 @@ Then starting with Node.js (JavaScript Runtime Environment). Notice that the cod
 It's strongly recommended to read/review the [README.MD](https://github.com/anmarjarjees/node.js-start) file of "Starting with Node" repo.
 
 # Code File Sequence:
-- Basic: Global Objects - Global "process" module:
+Part#1 - Basic: Global Objects - Global "process" module:
     - https://github.com/anmarjarjees/node.js-start/tree/main/1.basic
-- Events and Callback Functions Concepts:
+Part#2 - Events and Callback Functions Concepts:
     - https://github.com/anmarjarjees/node.js-start/tree/main/2.events

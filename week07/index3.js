@@ -1,4 +1,10 @@
-// main repo of index3.js about
+/* 
+Notice that the code below is a quick summary. 
+For more detailed reading with full comments:
+Link: https://github.com/anmarjarjees/express-basics
+*/
+
+// In my main repo of index3.js about combining all routes:
 /*
 - Route "/crud" => .get() HTTP method
 - Route "/crud" => .post() HTTP method
@@ -6,7 +12,7 @@
 - Route "/crud" => .delete() HTTP method
 */
 
-// using index4.js from the main repo:
+// using the code of "index4.js" from my main repo:
 import express from "express";
 import data from './data/mock-data.json' assert { type: 'json' };
 
@@ -25,7 +31,7 @@ app.get('/employees', (req, res) => {
 
 /*
   filter the output based on the id value
-  */
+*/
 
 // simple demo about params:
 // URL: http://localhost:3000/users/:userId

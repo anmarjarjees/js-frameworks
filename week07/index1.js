@@ -1,3 +1,9 @@
+/* 
+Notice that the code below is a quick summary. 
+For more detailed reading with full comments:
+Link: https://github.com/anmarjarjees/express-basics
+*/
+
 /*
 Two modules:
 - CommonJS => require() 

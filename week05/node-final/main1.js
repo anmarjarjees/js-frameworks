@@ -1,6 +1,6 @@
 /* 
-Notice that the code below is just a quick summary,
-for more reading with full detailed comments:
+Notice that the code below is a quick summary. 
+For more detailed reading with full comments:
 Link: https://github.com/anmarjarjees/node.js-start/tree/main/5.modules
 */
 

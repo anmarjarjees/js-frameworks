@@ -1,4 +1,3 @@
-
 // File System:
 // fs module
 /* 
@@ -103,17 +102,17 @@ fs.readFile('./files/test.txt', 'utf8', (err, data) => {
 
 // Example3: readFile(file-name, cb); => non-blocking
 fs.readFile('./files/testing.txt', 'utf8', (err, data) => {
-  // different ways to handle err and data:
-  if (err) {
-    // output the error message => err
-    console.log(err);
-    // stop/terminate this function:
-    return;
-    /* 
-    1- return a value
-    2- stop the function/method
-    */
-  }
-  // output the file content => data
-  console.log(data); // undefined!
+    // different ways to handle err and data:
+    if (err) {
+        // output the error message => err
+        console.log(err);
+        // stop/terminate this function:
+        return;
+        /* 
+        1- return a value
+        2- stop the function/method
+        */
+    }
+    // output the file content => data
+    console.log(data); // undefined!
 });

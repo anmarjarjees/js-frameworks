@@ -1,6 +1,6 @@
 // based on index5 from the main repo:
 import express from "express";
-import data from './data/mock-data.json' assert { type: 'json' };
+import data from './data/mock-data.json' with { type: 'json' };
 
 const app = express();
 
@@ -27,4 +27,4 @@ app.use(express.static('public'));
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port http://localhost:${PORT}`)
-})
+});

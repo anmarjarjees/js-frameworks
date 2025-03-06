@@ -1,12 +1,26 @@
 // First: import "express"
-// const express = require('express'); // Common JS
 import express from 'express'; // ES module
-// importing the json file to our index1.js:
-// I have added { type: 'json' }
-// Link: https://nodejs.org/api/esm.html#import-assertions
 
-// based on index2 from the main repo
+// importing the json file to our index1.js:
 import data from './data/mock-data.json' assert { type: 'json' };
+/* 
+IMPORTANT NOTE REVIEW:
+**********************
+Please consider the same note again that we discussed previously:
+
+assert { type: 'json' } part tells JavaScript that the imported file is JSON. 
+This is required for JSON imports in ES modules
+
+Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#import_assertions
+Link: https://nodejs.org/download/release/v18.11.0/docs/api/esm.html#json-modules
+
+Please be advised that the "assert" keyword has been "deprecated" in favor of the "with" keyword.
+Older versions of Node.js required importing JSON files using "assert",
+while newer versions using "with":
+> import data from './data/mock-data.json' with { type: 'json' };
+
+Link: https://nodejs.org/api/esm.html#import-assertions
+*/
 
 const app = express(); // could be any other name you like
 
@@ -44,7 +58,7 @@ Let's name our path => /create
 // URL => http://localhost:3000/create
 app.post("/create", (req, res) => {
     res.send('Practising .post() HTTP method for "Create" using the rout "/create"');
-  });
+});
 
 /*
 3: Practising .put() HTTP method:
@@ -55,7 +69,6 @@ Let's name our path => /update
 app.put("/update", (req, res) => {
     res.send('Practising .put() HTTP method for "Update" using the route "/update"');
 });
-
 
 /*
 4: Practising .delete() HTTP method:

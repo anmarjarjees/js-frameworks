@@ -57,7 +57,7 @@ app.get("/members/:memberId/age/:age", (req, res) => {
   const memberId = Number(req.params.memberId);
   const memberAge = Number(req.params.age);
   res.send(`Member ID: ${memberId} <br> Member Age: ${memberAge}`); // displayed in the browser
-})
+});
 
 // Targeting our JSON file through the id property value
 // URL: http://localhost:3000/employees/16

@@ -1,6 +1,4 @@
 import express from "express";
-// not in use:
-// import data from './data/mock-data.json' assert { type: 'json' };
 
 const app = express();
 
@@ -42,6 +40,6 @@ app.route('/route')
         res.send('Practising .delete() HTTP method for "Delete"');
     });
 
-    app.listen(PORT, () => {
-        console.log(`Example app listening on port http://localhost:${PORT}`)
-    })
+app.listen(PORT, () => {
+    console.log(`Example app listening on port http://localhost:${PORT}`)
+})

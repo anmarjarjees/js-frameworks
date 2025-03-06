@@ -56,3 +56,29 @@ console.log(`The average of ${num1} and ${num2} is ${findAvg(num1, num2)}`);
 console.log(`
     The average of ${num1} and ${num2} 
     is ${myFunctions.findAvg(num1, num2)}`);
+
+
+/* 
+IMPORTANT NOTE:
+***************
+There are two solutions for supporting the use of "import" and "export":
+
+1) Preferred solution: 
+**********************
+- Using "type": "module" in the package.json for simplicity and flexibility.
+
+- "type": "module" in package.json:
+    > is the cleaner
+    > more scalable solution
+    > recommend because we can keep using .js files, 
+    and Node.js will automatically treat them as ES Modules without requiring you to rename every file to .mjs
+
+2) Alternative solution: 
+************************
+- Rename files to .mjs if you don't want to modify package.json.
+
+- .mjs file extension:
+    > is a good alternative if we  want to force Node.js to recognize files as modules individually
+    > it can become cumbersome if you have many files to rename
+    > less commonly used unless you have a specific reason for it
+*/

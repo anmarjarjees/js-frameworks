@@ -7,8 +7,24 @@ Link: https://github.com/anmarjarjees/express-basics
 import express from 'express'; // ES module
 
 // import the data/content from the JSON file:
-import data from './data/mock-data.json' assert { type: 'json'};
 // needs an import assertion of type "json"
+import data from './data/mock-data.json' assert { type: 'json'};
+/* 
+IMPORTANT NOTE:
+***************
+
+assert { type: 'json' } part tells JavaScript that the imported file is JSON. 
+This is required for JSON imports in ES modules
+
+Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#import_assertions
+Link: https://nodejs.org/download/release/v18.11.0/docs/api/esm.html#json-modules
+
+Please be advised that the "assert" keyword has been "deprecated" in favor of the "with" keyword.
+Older versions of Node.js required importing JSON files using "assert",
+while newer versions using "with":
+> import data from './data/mock-data.json' with { type: 'json' };
+*/
+
 
 const app = express(); // could any other name you like
 
@@ -39,5 +55,5 @@ app.get('/employees', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port http://localhost:${PORT}`)
+  console.log(`Example app listening on: http://localhost:${PORT}`)
 });

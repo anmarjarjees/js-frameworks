@@ -5,15 +5,21 @@ Link: https://github.com/anmarjarjees/express-basics
 */
 
 /*
-Two modules:
-- CommonJS => require() 
-- ES (2015) => import
+Two modules (Reviewing):
+************************
+- CJS => [Classical :-) Way] => Common JavaScript => require() 
+- MJS => [Modern :-) Way] => Module JavaScript => ES (2015) => import
 */
-// First: import "express"
-// const express = require('express'); // Common JS
-import express from 'express'; // ES module
 
-const app = express(); // could any other name you like
+// First: import "express"
+
+// Using "CJS":
+// const express = require('express'); // CJS => Common JS
+
+// Using "MJS":
+import express from 'express'; // MJS => ES module
+
+const app = express(); // could be any other name you like
 
 const PORT = 3000;
 
@@ -25,5 +31,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port http://localhost:${PORT}`)
+  console.log(`Example app listening on: http://localhost:${PORT}`)
 })

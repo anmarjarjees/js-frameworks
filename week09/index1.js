@@ -1,3 +1,14 @@
+/* 
+Notice that the code below is a quick summary. 
+For more detailed reading with full comments:
+Link: https://github.com/anmarjarjees/express-basics
+*/
+
+/* 
+CRUD Operation Demo with POSTMAN - Part1: Individual Methods
+Link: https://github.com/anmarjarjees/express-basics/blob/main/README.md#postman-and-json-data
+*/
+
 // First: import "express"
 import express from 'express'; // ES module
 
@@ -39,14 +50,24 @@ post() => Create
 put() => Update
 delete() => delete
 
-NOTE: We need to use "Postman" to test "put", "post", "delete"
+NOTE: 
+We need to use "Postman" to test "put", "post", "delete"
 For practising, we are going to get the data from JSON file
 To test it we can use the Postman and the browser
+Please refer to my README File for Postman:
+Link https://github.com/anmarjarjees/express-basics/blob/main/README.md#postman-and-json-data
 */
 // URL => http://localhost:3000/employees
 app.get("/employees", (req, res) => {
     // using the response with the method ".json()"" to get the JSON data 
     // and send a JSON response to the route handler:
+    res.json(data);
+});
+
+// another example:
+// URL => http://localhost:3000/users
+app.get("/users", (req, res) => {
+    // using the response with the method .json() to get the JSON data:
     res.json(data);
 });
 
@@ -81,5 +102,5 @@ app.delete("/delete", (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Example app listening on port http://localhost:${PORT}`)
+    console.log(`Example app base url: http://localhost:${PORT}`)
 })

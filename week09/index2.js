@@ -1,3 +1,13 @@
+/* 
+Notice that the code below is a quick summary. 
+For more detailed reading with full comments:
+Link: https://github.com/anmarjarjees/express-basics
+*/
+
+/* 
+CRUD Operation Demo with POSTMAN - Part2: Combined Methods (chaining)
+Link: https://github.com/anmarjarjees/express-basics/blob/main/README.md#postman-and-json-data
+*/
 import express from "express";
 
 const app = express();
@@ -41,5 +51,5 @@ app.route('/route')
     });
 
 app.listen(PORT, () => {
-    console.log(`Example app listening on port http://localhost:${PORT}`)
+    console.log(`Example app base url: http://localhost:${PORT}`)
 })

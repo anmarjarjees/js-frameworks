@@ -41,10 +41,19 @@ app.get('/about', (req, res) => {
   res.send("<h1>About Express</h1>");
 });
 
+/* 
+To Review: Callback function: A function passed as an argument to another function.
+Example of using "callback function" (another way but it's longer)
+the CB is "learnExpress()"
+*/
+function learnExpress(req, res) {
+  // res.send() sends an HTML response to the client.
+  res.send('<h1>Hello Express JS framework! The minimal framework</h1><h2>Learn the essentials of Express JS</h2>');
+}
+
+// The learnExpress function is passed as a callback to app.get()
 // URL: http://localhost:3000/learn
-app.get('/learn', (req, res) => {
-  res.send("<h1>Learn the essentials of Express JS</h2>");
-});
+app.get('/learn', learnExpress);
 
 // how to fetch the JSON contents:
 // http://localhost:3000/employees

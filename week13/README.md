@@ -1,4 +1,2 @@
 # Testing and Q/A with Presentations plus TypeScript Final Review
 For the full list of the code files and TypeScript project and folders settings, please refer to my main Github repo ["TypeScript-Intro"](https://github.com/anmarjarjees/TypeScript-Intro).
-
-

@@ -1,16 +1,16 @@
 [
     {
-        "name": "Alex",
+        "full-name": "Alex Chow",
         "program": "CMPG",
         "semester": 2
     },
     {
-        "name": "Sam",
+        "full-name": "sam Simpson",
         "program": "CSTN",
         "semester": 3
     },
     {
-        "name": "Kate",
+        "full-name": "Kate Grays",
         "program": "CMPG",
         "semester": 1
     }

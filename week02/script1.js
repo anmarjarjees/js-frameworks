@@ -162,6 +162,16 @@ Promises: Promise Class
 Resolved / Rejected:
 */
 
+// The constructor syntax for a promise object "promiseObj":
+// First: Declare our promise function:
+function promiseFun(resolve, reject) {
+    // write your code to handle both results: resolved or rejected
+}
+
+// Then: Passing the function:
+let promiseObj = new Promise(promiseFun);
+
+// OR in one shot :-)
 // Constructor syntax for a promise object "promiseObj1":
 let promiseObj1 = new Promise(function (resolve, reject) {
     // executor (the producing code, "singer")
@@ -171,6 +181,7 @@ let promiseObj1 = new Promise(function (resolve, reject) {
 let promiseObj2 = new Promise((resolve, reject) => {
     // executor (the producing code, "singer")
 });
+
 console.log(promiseObj2); // Promise { <pending> }
 
 /*
@@ -211,14 +222,20 @@ let pizzaOrder = new Promise((resolve, reject) => {
     let pizzaReady = true; // Checks if the pizza is ready
     if (pizzaReady) {
         // Resolve the promise with the message "Pizza is ready!"
+        // Resolve the promise => using our resolve() function
+        // We can pass anything to promise()
         resolve("Pizza is ready!");
     } else {
         // Reject the promise with the message "Pizza is not ready yet."
+        // (parameter) reject: (reason?: any) => void
+        // We can pass anything to reject()
         reject("Pizza is not ready yet.");
     }
 });
+
 /* 
 Promise Code Explanation: 
+*************************
 > Creating a new Promise object "pizzaOrder"
 > The Promise constructor takes an arrow function as an argument
 > This arrow function is called the "Executor Function"
@@ -228,6 +245,32 @@ Promise Code Explanation:
 */
 
 // STEP#2: Calling the promise object with its methods [then().catch().finally()]
+/*
+ A Promise object serves as a link between the executor "new Promise((resolve, reject) => { }"
+ and the consuming functions, which will receive the result or error. 
+ Consuming functions can be implemented using the methods .then and .catch.   
+ 
+ The syntax for .then is:
+ promise.then(
+     function(result) { 
+         // handle a successful result 
+     },
+     function(error) { 
+         // handle an error 
+     }
+ );
+ 
+ OR using the Arrow ES6 syntax (like Lambda expression):
+ promise.then(
+     (result) => { 
+         // handle a successful result 
+     },
+     (error) => { 
+         // handle an error 
+     }
+ );
+ */
+
 /* 
 Chaining the methods:
 *********************
@@ -258,6 +301,35 @@ Promise Result Code Explanation:
     onRejected is a callback function that receives the reason for the rejection 
     (value passed to reject)
 */
+
+/*
+IMPORTANT NOTE: 
+- If interested only in successful completions 
+  (The resolve function), 
+  we can provide only one function argument to ".then()":
+- If there is no function to handle the reject case,
+  JS will throw the same red error: Uncaught (in promise) Failed to get A+
+*/
+
+// First: Using "null":
+agePromise.then(
+    // Ignoring the first function (resolve) => null 
+    null,
+    // Function for handling errors
+    error => {
+        console.log(`Inside .then() method = Rejected Promise => ${error}`);
+    }
+);
+
+// Second: Using "catch()":
+// catch() handles only the rejection case
+// It's a shorthand for .then(null, f), focusing solely on rejection.
+agePromise.catch(
+    error => {
+        console.log(`Inside .catch() method = Rejected Promise => ${error}`);
+    }
+);
+
 
 /*
 Let's take another simple example:
@@ -300,49 +372,42 @@ But this can be avoided by using:
 */
 
 highAvg.then(
-    // Function for the resolved promise
-    result => {
+    // The first function (result) will be executed with "resolve"
+    // Function for the resolved promise => (result) => { ... } 
+    (result) => {
         // Output:
         console.log(`Inside .then() method = Resolved Promise => ${result}`);
     },
-    // Function for the rejected promise
-    error => {
+    // The second function (error) will be executed with "reject"
+    // Function for the rejected promise => (error) => { ... }
+    (error) => {
         // Output:
         console.log(`Inside .then() method = Rejected Promise => ${error}`);
     }
 );
 
-/*
-IMPORTANT NOTE: 
-- If interested only in successful completions 
-  (The resolve function), 
-  we can provide only one function argument to ".then()":
-- If there is no function to handle the reject case,
-  JS will throw the same red error: Uncaught (in promise) Failed to get A+
-*/
+// Another example :-)
+let agePromise = new Promise((resolve, reject) => {
+    let age = 20;
+    if (age >= 18) resolve(`Age is ${age}, you can apply`);
+    else reject(`Age is ${age}, you cannot apply`);
+});
 
-// First: Using "null":
-promise.then(
-    // Ignoring the first function (resolve) => null 
-    null,
-    // Function for handling errors
+agePromise.then(
+    // The first function (result) will be executed with "resolve"
+    result => {
+        // handle a successful result 
+        console.log(result);
+    },
+    // The second function (error) will be executed with "reject"
     error => {
-        console.log(`Inside .then() method = Rejected Promise => ${error}`);
-    }
-);
-
-// Second: Using "catch()":
-// catch() handles only the rejection case
-// It's a shorthand for .then(null, f), focusing solely on rejection.
-promise.catch(
-    error => {
-        console.log(`Inside .catch() method = Rejected Promise => ${error}`);
+        // handle an error 
+        console.log(error);
     }
 );
 
 // For better understanding, let's use promise => then => catch:
 // Promise to check if the number is even:
-
 const myPromise = new Promise((myResolve, myReject) => {
     let num = 7;
     if (num % 2 === 0) {

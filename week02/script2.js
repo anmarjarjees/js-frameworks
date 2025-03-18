@@ -9,25 +9,30 @@ We used to use XMLHttpRequest(); => with JSON
 Simplify the code of AJAX API request from the previous way
 by using the ES6 "Fetch API" with "fetch()" method
 
+- It has the same functionality of the old way of using "XMLHttpRequest" 
+(check my JS-Class repo), but the new Fetch API provides a more powerful and flexible feature set.
 - The Fetch API provides an interface for fetching resources
   (including across the network). 
 - It requires only one parameter, which is the URL of the resource that you want to fetch.
+- It uses "Promises" to deliver more flexible features to make requests to servers from the web browsers.
 - fetch() => returns a Promise object.
 - Since fetch() method returns a "Promise", you can use .then() and .catch() methods to handle it :-)
 
-// Basic fetch request example:
+Basic fetch request example:
+****************************
 fetch('http://example.com/movies.json')
   .then((response) => response.json())
   .then((data) => console.log(data));
 
-// fetch() does not directly return the JSON response body 
-// but instead returns a promise that resolves with a Response object.
+NOTE:
+*****
+fetch() does not directly return the JSON response body,
+but instead returns a promise that resolves with a Response object.
 
 Link: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 */
 
 // JSON Review
-
 // Basic example of JSON:
 const jsonExample = {
     "day": "Wed",
@@ -61,9 +66,10 @@ VS Code can also highlight errors in a JSON file :-)
 */
 
 // URL for testing:
-const url = "https://anmarjarjees.github.io/json-examples/music-inst.json";
+let url = "https://anmarjarjees.github.io/json-examples/music-inst.json";
 
 // Fetching the URL and logging the Promise object
+// fetching a response "res"
 let res = fetch(url);
 // for testing:
 console.log(res);
@@ -85,12 +91,27 @@ Promise {<pending>}
 // Fetching and logging the response object
 // Code Template: fetch(url).then((response) => console.log(response));
 
-// Fetching a non-existent URL to demonstrate error handling
+// Fetching a non-existent URL to demonstrate error handling:
+/*
+fetch(url1).then(
+    // adding our function if the link is working
+    // passing the response as a parameter
+    // using Arrow Anonymous function (Lambda Expression)
+).catch(
+    // adding our function for handling the error
+    // passing the error as a parameter
+    // using Arrow Anonymous function
+)
+*/
 fetch("http://api.non-exists-website-demo.org/no-json-file.json")
+    // our arrow function: for the success
+    // Handle the fulfilled response
     .then(response => {
-        // Handle the response
-        console.log(response);
+        console.log("The response: ", response); // The response: The full object structure
+        // console.log("The response: " + response); // The response: [object Response]
     })
+    // our arrow function: for the failure 
+    // Handle the error
     .catch(error => {
         // Handle the error
         /*
@@ -173,9 +194,6 @@ fetch(url)
     .then(response => response.json())
     .then(data => console.log(data[0].name)); // Piano
 
-/*
-
-*/
 fetch(url)
     // Parentheses are optional
     .then((response) => response.json())
@@ -201,6 +219,57 @@ fetch(url)
         document.getElementById("instruments").innerHTML = ul;
 
     });
+
+
+// One More Example :-)
+// going to our normal code:
+// Using another URL for testing:
+url = "https://anmarjarjees.github.io/products-json/products.json";
+fetch(url)
+    .then((response) => response.json())
+    .then((resObj) => {
+        // writing our full code to display the JSON Data
+        console.log(resObj);
+        // Link: https://www.w3schools.com/js/js_loop_forin.asp
+        // for (element in resObj) {
+        //     console.log(element);
+        // }
+
+        for (let i = 0; i < resObj.length; i++) {
+            // getting all the titles:
+            console.log(resObj[i].Title);
+        }
+
+
+        let htmlContent = "";
+        for (let i = 0; i < resObj.length; i++) {
+            // getting all the titles:
+            htmlContent += ("<ul>");
+            htmlContent += ("<li> Title: " + resObj[i].Title + "</li>");
+            htmlContent += ("<li> Maker: " + resObj[i].Maker + "</li>");
+            htmlContent += ("<li> Description: " + resObj[i].Description + "<br>");
+            /*
+                HTML:
+                <img src="image file" alt="Product Image" />
+            */
+            htmlContent += (`<img src='${resObj[i].img}' alt='Product Image' width="500" />` + "</li>");
+            htmlContent += ("</ul>");
+        }
+
+        // console.log(htmlContent);
+        // document.write(htmlContent);
+
+        // in two lines:
+        /*
+        let jsonDiv = document.getElementById("json-data");
+        jsonDiv.innerHTML = htmlContent;
+        */
+
+        // or in one line:
+        document.getElementById("json-data").innerHTML = htmlContent;
+    });
+
+
 
 /*
      Let's try GitHub API to grab some info from commits: (commit -m "message")

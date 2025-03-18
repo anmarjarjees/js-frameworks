@@ -9,24 +9,55 @@
 
 <body>
     <!-- All HTML Elements -->
-    <h1>Working with Promises</h1>
-    <p>
-        You can learn more about Promises by visiting this page <a
-            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">"Using
-            Promises"</a> in MDN website.
-    </p>
+    <header>
+        <h1>Working with Promises</h1>
+        <h2>Fetch with JSON</h2>
+    </header>
 
-    <!-- 
+    <main>
+        <p>
+            You can learn more about Promises by visiting this page <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+                target="_blank">"Using
+                Promises"</a> in MDN website.
+        </p>
+
+        <!-- 
         Calling these JS files in the following sequence:
         1. script1.js
         2. script2.js
      -->
 
-    <div id="instruments">
+        <div>
+            <h1>Music instruments</h1>
+            <div id="instruments">
 
-    </div>
+            </div>
+        </div>
 
-    <script src="script3.js">
+
+        <div>
+            <h1>Product List</h1>
+            <div id="json-data">
+                <!-- putting the output of the JSON data -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Developed for demonstration
+    </footer>
+
+    <!-- 
+        NOTE:
+        change the value 1, 2, 3 of:
+        script1, script2, script3
+        to examine all the code in the following sequence:
+        1. script1.js
+        2. script2.js
+        3. script3.js
+     -->
+    <script src="script2.js">
     </script>
 </body>
 

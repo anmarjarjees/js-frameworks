@@ -1,7 +1,2 @@
-# Week07 In-Class Code:
-- index1 => CRUD DEMO (Individual Function)
-- index2 => CRUD DEMO (Method Combining with route())
-- index3 => Working with Express Static files - Basic
-- index4 => Working with Express Static files - More advanced (recommended)
-
-Notice that "node-modules" folder was git ignored by me
+# Week09 - Working with Express & Node to create a full website demo:
+For full review about setup your workspace, installing the required packages, and all the required code files, please refer to my main Github repo ["Express & Node Website"](https://github.com/anmarjarjees/express-node-website).

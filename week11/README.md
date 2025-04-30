@@ -1,9 +1,12 @@
-# Introduction to MongoDB (NoSQL databases)
-For full review about creating MongoDB Atlas account, preparing Visual Studio, and practicing the essential of CRUD operation using MQL (MongoDB Query Language), please refer to:
-- my main Github repo ["MongoDB  with VScode"](https://github.com/anmarjarjees/mongodb-vscode).
-- My PDF Files (Course Materials Section)
+# Week11 - Building a full CRUD Application:
+Please refer to my two sections below:
 
-# Introduction to TypeScript
-For the full list of the code files and TypeScript project and folders settings, please refer to:
-- My Github repo ["TypeScript-Intro"](https://github.com/anmarjarjees/TypeScript-Intro).
-- My PDF Files (Course Materials Section)
+## MongoDB Express NodeJs Initial Project Setup:
+The foundational setup to start a project using MongoDB, Express, and Node.js. This repository outlines the initial setup and essential boilerplate for building Node.js projects using the MEAN (MongoDB, Express, Angular, Node.js), MEVN (MongoDB, Express, Vue.js, Node.js), or MERN (MongoDB, Express, React, Node.js) stack.
+ - [MongoDB Express NodeJs Starter Kit](https://github.com/anmarjarjees/men-starter-kit)
+
+## MongoDB Express NodeJs Full CRUD Application (Main Topic):
+Quick demo for CRUD operations using MongoDB, Express, and Node.js with Mongoose which is the the Object Data Modeling (ODM) library for MongoDB and Node.js.
+
+For this week we will implement the "Create" operation:
+- [MongoDB Express NodeJs CRUD Guide](https://github.com/anmarjarjees/men-crud-guide)

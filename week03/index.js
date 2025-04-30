@@ -1,3 +1,9 @@
+/* 
+NOTE TO RECALL:
+This file name has the default name of "index" => index.js
+If we just type node . => this fill will run automatically
+Same idea when we make the home page file name to be index.html :-)
+*/
 global.console.log("testing");
 
 console.log("Node");
@@ -30,13 +36,13 @@ function keepGoing() {
 // setInterval(keepGoing,2000);
 
 // Accessing the process object
-console.log(typeof process); 
+console.log(typeof process);
 
 console.log(process.version); // Example output: v16.14.0
 console.log(process.release);
 console.log(process.platform);
-console.log(process.arch); 
-console.log(process.title); 
+console.log(process.arch);
+console.log(process.title);
 
 // .env: returns an object containing the user environment variables
 console.log(process.env); // Outputs the environment variables object

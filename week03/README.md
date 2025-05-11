@@ -8,6 +8,6 @@ It's strongly recommended to read/review the [README.MD](https://github.com/anma
 - script2.js
 - script3.js
 
-# COriginal Content and Code File Sequence:
+# Original Content and Code File Sequence:
 - Part#3 - File System "fs" module
     - https://github.com/anmarjarjees/node.js-start/tree/main/3.files

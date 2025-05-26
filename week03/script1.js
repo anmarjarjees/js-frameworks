@@ -22,24 +22,23 @@ The only two methods/functions we will use from the fs module for now are:
 - readFileSync
 */
 
-// grab the file system fs:
+// Grab the file system fs :-)
 
 /* 
-to work with files:
-1- include the "fs" module by using either from the following ways:
-    - CJS
-    - MJS
+To work with files:
+1- include the "fs" module by using either one from the following ways:
+    - CJS => Common JavaScript
+    - MJS => Module JavaScript
 */
 
 // First Way:
-// CJS: Common JavaScript => Classical JS :-) => native for node 1
+// CJS: Common JavaScript => Classical JS :-) => native for node since early versions
 const fs = require('node:fs'); // works immediately 
 
 // Second Way:
 // MJS: Module JavaScript => Modern JS :-) => new to node (after 2015)
 // import fs from 'node:fs'; // extra settings :-)
 // SyntaxError: Cannot use import statement outside a module
-
 
 // testing => fs module?
 // console.log(fs);
@@ -59,7 +58,6 @@ sync <===> blocking
 This means that the function, like "readFileSync", needs to finish its work before any other code can run.
 
 Link: https://nodejs.org/en/learn/asynchronous-work/overview-of-blocking-vs-non-blocking#blocking
-
 
 readFileSync => blocking
 readFile => non-blocking

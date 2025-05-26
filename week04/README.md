@@ -8,6 +8,16 @@ It's strongly recommended to read/review the [README.MD](https://github.com/anma
 - main1.js and utilities1.js => using CJS
 - main2.js and utilities2.js => using MJS
 
+# Required Settings For MJS (Module Java Script):
+1- Create **"package.json"** file
+ - Manually as we create any file in VS Code. We will have an empty file!
+ - Initialize it with npm command:
+   - Node Package Manager:
+     -=> npm init (filled with questions to be answered!)
+     -=> npm init -y (skip all questions by using default values)
+2- Modify this JSON file by adding this key:value:
+    - "type": Module JS or Common JS (default)
+
 # Original Content and Code File Sequence:
 - Part#4 - Node HTML Pages:
     - https://github.com/anmarjarjees/node.js-start/tree/main/4.node_pages

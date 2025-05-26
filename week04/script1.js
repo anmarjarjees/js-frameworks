@@ -1,68 +1,25 @@
-// File System:
-// fs module
-/* 
-node "fs" => file system 
-The fs module:
-
-Node.js has a built-in file system module called "fs":
-- To access and interact with the file system
-- To perform CRUD operations on files/folders
-- No need to install it; being part of Node.js core
-- has many methods for manipulating folders/files in the system
-- fs can operate in a blocking or non-blocking way
-
-Link: https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs
-
-For this quick demo, we will learn how to read a file from the system:
-- fs.readFile(): Reads the content of a file
-- fs.readFileSync(): Same as readFile() but operates synchronously
-
-The only two methods/functions we will use from the fs module for now are:
-- readFile
-- readFileSync
-*/
-
-// grab the file system fs:
-
-/* 
-to work with files:
-1- include the "fs" module by using either from the following ways:
-    - CJS
-    - MJS
-*/
-
-// First Way:
+// First Way: We already practiced this way in the previous lecture :-)
 // CJS: Common JavaScript => Classical JS :-) => native for node 1
 // const fs = require('node:fs'); // works immediately 
 
-// Second Way:
+// Second Way: Trying this way for the first time :-)
 // MJS: Module JavaScript => Modern JS :-) => new to node (after 2015)
 import fs from 'node:fs'; // extra settings :-)
 // SyntaxError: Cannot use import statement outside a module
 /* 
-1- create file "package.json"
-    > manually!
-    > initialize it with npm command
-     - Node Package Manager:
-        => npm init (filled with question to be answered!)
-        => npm init -y (skip all question by using default values)
+1- Create **"package.json"** file
+ - Manually as we create any file in VS Code. We will have an empty file!
+ - Initialize it with npm command:
+   - Node Package Manager:
+     -=> npm init (filled with questions to be answered!)
+     -=> npm init -y (skip all questions by using default values)
 2- Modify this JSON file by adding this key:value:
     - "type": Module JS or Common JS (default)
 */
 
-
-// testing => fs module?
-// console.log(fs);
 /* 
-methods of the "fs"
-readFile: [Function: readFile],
-readFileSync: [Function: readFileSync],
-
-we can access them:
-fs.readFile();
-fs.readFileSync();
-
-Blocking vs Non-Blocking
+Blocking vs Non-Blocking Review:
+********************************
 Link: https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
 Any function that ends with "Sync" means "blocking".
 sync <===> blocking
@@ -70,11 +27,11 @@ This means that the function, like "readFileSync", needs to finish its work befo
 
 Link: https://nodejs.org/en/learn/asynchronous-work/overview-of-blocking-vs-non-blocking#blocking
 
-
 readFileSync => blocking
 readFile => non-blocking
 */
 
+// Same code below from our previous examples:
 /* 
 try {
     const txtContent = fs.readFileSync('./files/testing.txt', 'UTF-8');
@@ -84,7 +41,7 @@ try {
 } catch (error) {
     console.log("Cannot read file! "+ error);
 } 
-    */
+*/
 
 // Example2: readFile(file-name, cb); => non-blocking
 /* 

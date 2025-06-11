@@ -66,6 +66,7 @@ app.get('/employees', (req, res) => {
   */
 });
 
+// Finally: adding our code with listen() method
 app.listen(PORT, () => {
   console.log(`Example app listening on: http://localhost:${PORT}`)
 });

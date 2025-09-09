@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Functions Review:
+        /*
+        Default parameters with functions:
+        x will get the value of 10 if no value is being passed
+        y will get the value of 7 if no value is being passed
+        */
+        function add(x = 10, y = 7) {
+            return x + y;
+            /* 
+            return:
+            1- return a value from the function to main script
+            2- Terminate/stop my function
+            */
+            // this line below will be ignored
+            console.log("just for testing!");
+        }
+
+        function addNumbers(x, y) {
+            return x + y;
+        }
+
+        let adding = function (x, y) {
+            return x + y;
+        }
+
+        // ES6 => 2015
+        // arrow anonymous function!!!
+        // => (instead of keyword "function") No Name
+        let getTotal1 = (x, y) => {
+            return x + y;
+        }
+
+        let getTotal2 = (w, y) => { return x + y };
+
+        let getTotal3 = (w, y) => x + y;
+
+        /*
+        IMPORTANT NOTE:
+        ***************
+        If the function body:
+        > has one line
+        > return keyword
+        
+        we can summarize it by:
+        > remove the { }
+        > remove the "return" keyword
+        */
+        // Arrow Function with one parameter: no need for ()
+        // without {} => returns value automatically:
+        let doubleIt = x => x * 2;
+        // Literal object can have properties and methods
+        let carObj = {
+            brand: "Toyota",
+            year: 2020,
+            model: "lxt",
+            drive: function () {
+                console.log("Driving forward!");
+            },
+            getCarInfo: () => {
+                console.log("Car Info");
+            }
+        }
+
+        // type the car brand name:
+        console.log(`Your car is ${carObj}`);
+        // Your car is [object Object]
+        console.log(`Your car is ${carObj.brand}`);
+        // Your car is Toyota
+
+
+        carObj.drive();
+        // adding extra properties
+        carObj.owner = "Alex";
+
+
+        // Arrays built-in function:
+
+        // foreach()
+        // just loop through each item in the array:
+        // map()
+        // allows us to create a new array from an array
+        // filter()
+        // allows us to create a new array based on a condition
+
+        // array of objects:
+        let courses = [
+            {
+                name: "Java Adv",
+                semester: 3,
+                day: "Wed",
+                isOnline: false
+            },
+            {
+                name: "ASP.NET",
+                semester: 3,
+                day: "Wed",
+                isOnline: false
+            },
+            {
+                name: "Cloud Computing",
+                semester: 3,
+                day: "Fri",
+                isOnline: true
+            }
+        ]
+
+        // Task: creating an array with the course names only
+        let courseNames = courses.map(
+            function (element) {
+                return element.name
+            }
+        )
+
+        // other way:
+        let courseArr = courses.map(element => element.name);
+
+        // Filter: return the online courses
+        let onlineCourses = courses.filter(element => element.isOnline == true)
+
+        // loop through the array:
+        courses.forEach((item) => {
+            console.log(item.name);
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Look at the two basic objects below (Simple Properties):
+        const bio = {
+            name: "Alex Chow",
+            dob: "1974-07-12",
+            occupation: "Software Developer"
+        };
+
+        // Other Example
+        const student = {
+            fullName: 'Alex Chow',
+            program: 'CMPG',
+
+            // function inside an object is called a method:
+            // In JS (ES5) define a method:
+            read: function () {
+                console.log("Reading JS framework");
+            },
+
+            // In (ES6) define a method:
+            write() {
+                console.log("Writing the assignment");
+            }
+        } // student
+
+        /*
+        in ES5 (Before ES6): using the normal way of DOT notation to access the object's members:
+        */
+        student.read();
+        student.fullName = "Martin Smith";
+
+        /*
+        Since ES6: we can also use the bracket notation with properties:
+        */
+        student['fullName'] = "Sam Simpson";
+
+        // JSON 
+        let myJsonObj = {
+            "title": "JSFW",
+            "student-total": 49,
+            "semester": 4
+        }
+    </script>
+</body>
+
+</html>

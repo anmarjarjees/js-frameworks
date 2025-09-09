@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "first_name": "Christie",
+        "last_name": "Children",
+        "email": "cchildren0@ibm.com",
+        "Job_title": "Graphic Designer"
+    },
+    {
+        "id": 2,
+        "first_name": "Tarra",
+        "last_name": "Ruddock",
+        "email": "truddock1@yellowbook.com",
+        "Job_title": "Biostatistician III"
+    },
+    {
+        "id": 3,
+        "first_name": "Ansell",
+        "last_name": "Fonzo",
+        "email": "afonzo2@irs.gov",
+        "Job_title": "Community Outreach Specialist"
+    },
+    {
+        "id": 4,
+        "first_name": "Thomasina",
+        "last_name": "Edwinson",
+        "email": "tedwinson3@hibu.com",
+        "Job_title": "Budget/Accounting Analyst III"
+    },
+    {
+        "id": 5,
+        "first_name": "Antony",
+        "last_name": "German",
+        "email": "agerman4@pen.io",
+        "Job_title": "Chief Design Engineer"
+    },
+    {
+        "id": 6,
+        "first_name": "Ginnie",
+        "last_name": "Bugdale",
+        "email": "gbugdale5@lulu.com",
+        "Job_title": "Analyst Programmer"
+    },
+    {
+        "id": 7,
+        "first_name": "Denna",
+        "last_name": "Goldstraw",
+        "email": "dgoldstraw6@freewebs.com",
+        "Job_title": "Occupational Therapist"
+    }
+]

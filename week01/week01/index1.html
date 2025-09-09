@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // SE: Separation of Concern
+        /* 
+        > var: (since the beginning of JS - old way) => globally level scope
+        Declares a variable, optionally initializing it to a value.
+
+        > let (ES6): (the modern one, added in ES6/ ES2015) => block-level scope
+        Declares a block-scoped, local variable, optionally initializing it to a value.
+
+        > const (ES6):
+        Declares a block-scoped, read-only named constant.
+        */
+        let x = 10;
+        const MAX = 100;
+        var y = 90;
+        var y = true;
+        // let x=2;
+        const college = "Georgian";
+        const PROGRAM = "CMPG"; // using UPPERCASE "PROGRAM" just by convention :-)
+
+        // ALT+SHIFT+F => Format Code
+        // Concatenation 
+        console.log("My college is " + college);
+
+        // ES6: Template literals (Template strings)
+        // JS Template Literal 
+        // 2015 => JS => EcmaScript 6 (JS 2015)
+        console.log(`My college is ${college}`);
+
+        let firstName = "Alex";
+        let lastName = "Chow";
+        console.log(`Full Name: ${firstName} ${lastName}`);
+
+        /* 
+        Operators:
+        > Increment Operator: ++
+        > Decrement Operator: --
+        */
+        let i = 5;
+        i += 6;
+
+        let a = 10
+        let b = 5;
+        let result = a * ++b; // 10 x 5+1 => 10 * 6
+        console.log(`Result ${result}`); // 60
+
+        let avg = Number(prompt("Enter your average"));
+    </script>
+</body>
+
+</html>

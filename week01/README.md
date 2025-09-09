@@ -17,6 +17,14 @@ Reviewing of the important topics from my course ["JavaScript Programming"](http
 - JavaScript Promises Introduction:
     - [JavaScript Programming - Lecture11 - Promises Introduction](https://github.com/anmarjarjees/javascript-code/tree/main/week11)
 
+# Code Sequence:
+- index1.html
+- index2.html
+- index3.html
+- Index4.html
+    - script1.js
+    - script2.js
+    - script3.js
 
 # EcmaScript 6 Main Repo:
 For a complete and comprehensive review about EcmaScript 6, please refer to my main (original) repository about []"EcmaScript"](https://github.com/anmarjarjees/ECMAScript6/tree/main).
